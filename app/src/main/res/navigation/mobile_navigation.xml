@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_launch">
+
+    <fragment
+        android:id="@+id/nav_launch"
+        android:name="com.example.package_delivery_app_group_a.LaunchFragment"
+        android:label="@string/launch"
+        tools:layout="@layout/fragment_launch">
+<!--        <action-->
+<!--            android:id="@+id/action_launchFragment_to_loginFragment"-->
+<!--            app:destination="@+id/nav_login"-->
+<!--            app:popUpTo="@+id/nav_launch"-->
+<!--            app:popUpToInclusive="true"/>-->
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.package_delivery_app_group_a.ui.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_fgt_pwd"
+        android:name="com.example.package_delivery_app_group_a.ui.login.ForgotPasswordFragment"
+        android:label="@string/fgt_tittle"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.package_delivery_app_group_a.ui.register.RegisterFragment"
+        android:label="@string/register"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>

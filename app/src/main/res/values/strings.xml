@@ -1,0 +1,138 @@
+<resources>
+    <string name="app_name">package-delivery-app-group-a</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="not_a_registered_user">Not Registered?</string>
+    <string name="login_register"><u><b>Register</b></u></string>
+    <!--    <string name="action_sign_in_short">Sign in</string>-->
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login">login</string>
+    <!-- Forgot Password -->
+    <string name="fgt_tittle">Forgot Password</string>
+    <string name="fgt_desc">Please provide your email address.</string>
+    <string name="fgt_submit">Submit</string>
+    <string name="fgt_email">Email</string>
+
+    <!-- Strings related to register -->
+    <string name="register_tittle">CREATE ACCOUNT</string>
+    <string name="register_fname">First Name</string>
+    <string name="register_lname">Last Name</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_cpassword">Confirm Password</string>
+    <string name="register_register">Register</string>
+    <string name="registered_user">Already an User?</string>
+    <string name="register_login"><u><b>Login</b></u></string>
+    <string name="register_failed" />
+    <string name="launchimage">launchImage</string>
+    <string name="launch">launch</string>
+    <string name="register">register</string>
+
+    <!-- Toast -->
+    <string name="err_msg_enter_first_name">Please enter first name</string>
+    <string name="err_msg_enter_last_name">Please enter last name</string>
+    <string name="err_msg_enter_email">Please enter email</string>
+    <string name="err_msg_enter_password">Please enter password</string>
+    <string name="err_msg_enter_cpassword">Please enter confirm password</string>
+    <string name="err_msg_password_n_cpwd_mismatch">Passwords do not match</string>
+    <string name="err_msg_input_required">Input Required!</string>
+    <string name="not_err_details">Successfully Registered!</string>
+    <string name="suc_msg_email_sent">Email sent successful, Reset your password!</string>
+    <string name="suc_msg_login">Welcome Back!</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_vendor">Vendor</string>
+    <string name="menu_building">Building</string>
+    <string name="menu_driver">Driver</string>
+    <string name="menu_history">History</string>
+    <string name="menu_account">Account</string>
+    <string name="text_home_pending">Pending</string>
+    <string name="text_home_on_the_way">On the Way</string>
+
+    <string name="driver_name">Driver</string>
+    <string name="vendor_name">Vendor</string>
+    <string name="building_name">Building</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account">Account</string>
+
+    <string-array name="package_ontheway_vendor_array">
+        <item>IKEA Southampton</item>
+        <item>Buck and Hickman</item>
+        <item>Howdens</item>
+        <item>Eurocell</item>
+        <item>Hampshire Ltd</item>
+        <item>Solent Stevedores Ltd</item>
+        <item>Solent Stevedores Ltd</item>
+    </string-array>
+    <string-array name="package_ontheway_building_array">
+        <item>Mayflower Halls</item>
+        <item>Southampton Port</item>
+        <item>The Civic Centre</item>
+        <item>Avenue Campus</item>
+        <item>Highfield Campus</item>
+        <item>King Edward School</item>
+        <item>King Edward School</item>
+    </string-array>
+    <string-array name="package_ontheway_driver_array">
+        <item>Basel Halak</item>
+        <item>Geoff Merrett</item>
+        <item>Kirk Martinez</item>
+        <item>Ruomeng Huang</item>
+        <item>Alex S Weddell</item>
+        <item>Mohammed El-Hajjar</item>
+        <item>Mohammed El-Hajjar</item>
+    </string-array>
+    <string-array name="package_pending_vendor_array">
+        <item>Solent Stevedores Ltd</item>
+        <item>IKEA Southampton</item>
+        <item>Buck and Hickman</item>
+        <item>Howdens</item>
+        <item>Eurocell</item>
+        <item>Hampshire Ltd</item>
+        <item>Solent Stevedores Ltd</item>
+    </string-array>
+    <string-array name="package_pending_building_array">
+        <item>King Edward School</item>
+        <item>Mayflower Halls</item>
+        <item>Southampton Port</item>
+        <item>The Civic Centre</item>
+        <item>Avenue Campus</item>
+        <item>Highfield Campus</item>
+        <item>King Edward School</item>
+    </string-array>
+    <string-array name="package_pending_driver_array">
+        <item>Mohammed El-Hajjar</item>
+        <item>Basel Halak</item>
+        <item>Geoff Merrett</item>
+        <item>Kirk Martinez</item>
+        <item>Ruomeng Huang</item>
+        <item>Alex S Weddell</item>
+        <item>Mohammed El-Hajjar</item>
+    </string-array>
+
+    <!--    <string name="app_name">Affirmations</string>-->
+    <string name="affirmation1">Basel Halak</string>
+    <string name="affirmation2">Geoff Merrett</string>
+    <string name="affirmation3">Kirk Martinez</string>
+    <string name="affirmation4">Ruomeng Huang</string>
+    <string name="affirmation5">Alex S Weddell</string>
+    <string name="affirmation6">Mohammed El-Hajjar</string>
+    <string name="affirmation7">Mohammed El-Hajjar</string>
+    <string name="affirmation8">Shasini Umesha</string>
+    <string name="affirmation9">Yifei Shi</string>
+    <string name="affirmation10">Wu Si</string>
+</resources>
