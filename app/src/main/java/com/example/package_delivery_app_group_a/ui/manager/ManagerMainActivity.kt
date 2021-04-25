@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.package_delivery_app_group_a.R
@@ -37,5 +38,9 @@ class ManagerMainActivity : AppCompatActivity() {
             R.id.nav_home, R.id.nav_vendor, R.id.nav_building, R.id.nav_driver, R.id.nav_history, R.id.nav_account), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)  //content_main.xml
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
