@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.manager.MainManagerFragment">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -21,5 +22,6 @@
             app:popupTheme="@style/Theme.Packagedeliveryappgroupa.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <include layout="@layout/content_main_manager" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
