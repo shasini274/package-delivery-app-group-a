@@ -34,17 +34,19 @@
     <string name="launch">launch</string>
     <string name="register">register</string>
 
-    <!-- Toast -->
-    <string name="err_msg_enter_first_name">Please enter first name</string>
-    <string name="err_msg_enter_last_name">Please enter last name</string>
-    <string name="err_msg_enter_email">Please enter email</string>
-    <string name="err_msg_enter_password">Please enter password</string>
-    <string name="err_msg_enter_cpassword">Please enter confirm password</string>
+    <!-- Progress Bar-->
+    <string name="prog_bar_txt">Loading ...</string>
+    <!--SnackBar-->
+    <string name="err_msg_first_name">Please enter first name</string>
+    <string name="err_msg_last_name">Please enter last name</string>
+    <string name="err_msg_email">Please enter email</string>
+    <string name="err_msg_password">Please enter password</string>
+    <string name="err_msg_cpassword">Please enter confirm password</string>
     <string name="err_msg_password_n_cpwd_mismatch">Passwords do not match</string>
     <string name="err_msg_input_required">Input Required!</string>
     <string name="not_err_details">Successfully Registered!</string>
     <string name="suc_msg_email_sent">Email sent successful, Reset your password!</string>
-    <string name="suc_msg_login">Welcome Back!</string>
+    <string name="suc_msg_login">Welcome!</string>
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
@@ -67,7 +69,6 @@
 
     <string name="label_package_fragment">Package</string>
     <string name="label_new_item_fragment">New Package</string>
-
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -140,4 +141,19 @@
     <string name="affirmation8">Shasini Umesha</string>
     <string name="affirmation9">Yifei Shi</string>
     <string name="affirmation10">Wu Si</string>
+    <string name="title_activity_manager_main">ManagerMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_driver_main">DriverMainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

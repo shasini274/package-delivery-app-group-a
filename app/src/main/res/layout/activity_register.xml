@@ -2,14 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_forgot_pwd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/fragment_horizontal_margin"
-    android:paddingTop="@dimen/fragment_vertical_margin"
-    android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.register.RegisterFragment">
+    tools:context=".ui.register.RegisterActivity">
 
     <Button
         android:id="@+id/register"
@@ -19,7 +14,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="184dp"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/register"
         android:textColor="#FFFFFF"
         app:backgroundTint="#009688"
@@ -32,21 +27,23 @@
         android:id="@+id/login_not_registered"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="44dp"
         android:text="@string/registered_user"
-        app:layout_constraintTop_toBottomOf="@+id/register"
-        tools:layout_editor_absoluteX="103dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register" />
 
     <TextView
         android:id="@+id/reg_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="136dp"
 
+        android:foreground="?attr/selectableItemBackground"
         android:text="@string/register_login"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register"
-        tools:layout_editor_absoluteX="214dp"
         tools:targetApi="m" />
 
     <TextView
@@ -97,14 +94,15 @@
         android:id="@+id/reg_pwd"
         android:layout_width="332dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
 
         android:hint="@string/register_password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/reg_cpwd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -116,9 +114,8 @@
         android:ems="10"
         android:hint="@string/register_cpassword"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/reg_pwd"
+        app:layout_constraintBottom_toTopOf="@+id/register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -130,9 +127,8 @@
         android:ems="10"
         android:hint="@string/register_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/reg_cpwd"
+        app:layout_constraintBottom_toTopOf="@+id/reg_pwd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
