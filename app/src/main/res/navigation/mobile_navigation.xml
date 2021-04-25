@@ -31,5 +31,83 @@
         android:name="com.example.package_delivery_app_group_a.ui.register.RegisterFragment"
         android:label="@string/register"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_newItemFragment"
+            app:destination="@id/newItemFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_packageDetailFragment"
+            app:destination="@id/packageDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_vendor"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragment"
+        android:label="@string/menu_vendor"
+        tools:layout="@layout/fragment_vendor" >
+        <action
+            android:id="@+id/action_nav_vendor_to_addNewItemFragment"
+            app:destination="@id/newItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_building"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment"
+        android:label="@string/menu_building"
+        tools:layout="@layout/fragment_building" >
+        <action
+            android:id="@+id/action_nav_building_to_addNewItemFragment"
+            app:destination="@id/newItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_driver"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment"
+        android:label="@string/menu_driver"
+        tools:layout="@layout/fragment_driver" >
+        <action
+            android:id="@+id/action_nav_driver_to_addNewItemFragment"
+            app:destination="@id/newItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.history.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_history" />
+
+
+    <fragment
+        android:id="@+id/packageDetailFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.PackageDetailFragment"
+        android:label="@string/label_package_fragment"
+        tools:layout="@layout/fragment_package_detail" >
+        <argument
+            android:name="packageID"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/newItemFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.NewItemFragment"
+        android:label="@string/label_new_item_fragment"
+        tools:layout="@layout/fragment_new_item">
+        <argument
+            android:name="newItemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/mainManagerFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.MainManagerFragment"
+        android:label="@string/manager_main"
+        tools:layout="@layout/app_bar_main_manager" />
 
 </navigation>

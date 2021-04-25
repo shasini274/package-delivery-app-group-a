@@ -32,9 +32,11 @@ class BuildingFragment : Fragment() {
         })
         val itemType: String = "New Building"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
+
         fab.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(BuildingFragmentDirections.actionNavBuildingToAddNewItemFragment(itemType))
         }
+
         return root
     }
 

@@ -54,17 +54,18 @@ class LoginFragment : Fragment(){
 
             if(pwd.isNotEmpty() &&  email.isNotEmpty()){
                 //Toast.makeText(appContext,R.string.not_err_details, Toast.LENGTH_LONG).show()
-                signInUser(email, pwd)
+                findNavController().navigate(R.id.mainManagerFragment)
+                //signInUser(email, pwd)
             }
             else{
                 Toast.makeText(appContext,R.string.err_msg_input_required, Toast.LENGTH_LONG).show()
             }
         }
-            reg_button.setOnClickListener{
-                findNavController().navigate(R.id.nav_register)}
+        reg_button.setOnClickListener{
+            findNavController().navigate(R.id.nav_register)}
 
-            reg_fpwd_button.setOnClickListener{
-                findNavController().navigate(R.id.nav_fgt_pwd)}
+        reg_fpwd_button.setOnClickListener{
+            findNavController().navigate(R.id.nav_fgt_pwd)}
     }
     private fun signInUser(email:String, pwd:String) {
         val appContext = context?.applicationContext

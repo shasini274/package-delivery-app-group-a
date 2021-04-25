@@ -99,14 +99,15 @@
         android:id="@+id/reg_pwd"
         android:layout_width="332dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
 
         android:hint="@string/register_password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/reg_cpwd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -118,9 +119,8 @@
         android:ems="10"
         android:hint="@string/register_cpassword"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/reg_pwd"
+        app:layout_constraintBottom_toTopOf="@+id/register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -132,7 +132,7 @@
         android:ems="10"
         android:hint="@string/register_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/reg_cpwd"
+        app:layout_constraintBottom_toTopOf="@+id/reg_pwd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

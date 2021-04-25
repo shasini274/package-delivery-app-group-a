@@ -51,6 +51,7 @@
     <string name="nav_header_desc">Navigation header</string>
 
 
+    <string name="manager_main">Manager Main</string>
     <string name="menu_home">Home</string>
     <string name="menu_vendor">Vendor</string>
     <string name="menu_building">Building</string>
@@ -63,6 +64,10 @@
     <string name="driver_name">Driver</string>
     <string name="vendor_name">Vendor</string>
     <string name="building_name">Building</string>
+
+    <string name="label_package_fragment">Package</string>
+    <string name="label_new_item_fragment">New Package</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.package_delivery_app_group_a.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -93,8 +94,9 @@ class HomeFragment : Fragment() {
         // Floating Action Button
         val itemType: String = "New Package"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
+
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToAddNewItemFragment(itemType))
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNewItemFragment(itemType))
         }
 
         //two button: On the way, pending
@@ -128,22 +130,6 @@ class HomeFragment : Fragment() {
 
         }
 
-/*
-        val homeBtnViews: List<View> =
-                listOf(onthewayBtn, pendingBtn)
-        for (item in homeBtnViews) {
-            when(item.id) {
-                R.id.home_ontheway_btn -> {
-                    item.setOnClickListener {it.setBackgroundResource(R.color.white)}
-                    pendingBtn.setBackgroundResource(R.color.grey_light)
-                }
-                R.id.home_pending_btn -> {
-                    item.setOnClickListener {it.setBackgroundResource(R.color.white)}
-                    onthewayBtn.setBackgroundResource(R.color.grey_light)
-                }
-            }
-        }
-*/
 
         return root
     }

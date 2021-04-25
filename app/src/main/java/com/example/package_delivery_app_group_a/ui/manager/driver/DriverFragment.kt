@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.adapter.ItemAdapter
@@ -40,8 +41,13 @@ class DriverFragment : Fragment() {
 
         val itemType: String = "New Driver"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
+
         fab.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(DriverFragmentDirections.actionNavDriverToAddNewItemFragment(itemType))
+        }
+
+        fab.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_driver_to_addNewItemFragment)
         }
 
         return root
