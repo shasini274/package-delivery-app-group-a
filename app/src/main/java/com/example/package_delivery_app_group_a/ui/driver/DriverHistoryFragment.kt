@@ -1,13 +1,10 @@
-package com.example.package_delivery_app_group_a.ui.manager
+package com.example.package_delivery_app_group_a.ui.driver
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.navArgs
 import com.example.package_delivery_app_group_a.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [NewItemFragment.newInstance] factory method to
+ * Use the [DriverHistoryFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NewItemFragment : Fragment() {
+class DriverHistoryFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -38,18 +35,7 @@ class NewItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_new_item, container, false)
-
-
-        val args: NewItemFragmentArgs by navArgs()
-/*
-        val tvTemp: TextView = root.findViewById(R.id.new_item_test_text2)
-        tvTemp.text = args.newItemType
-*/
-        (activity as AppCompatActivity).supportActionBar?.title = args.newItemType
-
-
-            return root
+        return inflater.inflate(R.layout.fragment_history_driver, container, false)
     }
 
     companion object {
@@ -59,12 +45,12 @@ class NewItemFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment NewItemFragment.
+         * @return A new instance of fragment DriverHistoryFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            NewItemFragment().apply {
+            DriverHistoryFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

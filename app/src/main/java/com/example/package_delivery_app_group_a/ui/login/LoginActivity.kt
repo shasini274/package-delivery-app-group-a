@@ -9,6 +9,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.package_delivery_app_group_a.BaseActivity
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.google.android.gms.tasks.OnCompleteListener
@@ -98,8 +99,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                             //val firebaseUser: FirebaseUser = task.result!!.user!!
                             //"You are registered successfully. Your user id is ${firebaseUser.uid}",
                             showErrorSnackBar(resources.getString(R.string.suc_msg_login), false)
-                            val intent = Intent(this@LoginActivity, ManagerMainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, DriverMainActivity::class.java)
                             startActivity(intent)
+                            finish()
 //                            FirebaseAuth.getInstance().signOut()
 //                            finish()
                         } else {

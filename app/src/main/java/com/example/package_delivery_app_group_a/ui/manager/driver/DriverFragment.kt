@@ -32,12 +32,14 @@ class DriverFragment : Fragment() {
         })*/
         val myDataset = Datasource().loadAffirmations()
 
+/*
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.adapter = ItemAdapter(this, myDataset)
 
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true)
+*/
 
         val itemType: String = "New Driver"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)

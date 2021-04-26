@@ -53,6 +53,7 @@
     <string name="nav_header_desc">Navigation header</string>
 
 
+    <!-- Navigation Drawer Manager-->
     <string name="manager_main">Manager Main</string>
     <string name="menu_home">Home</string>
     <string name="menu_vendor">Vendor</string>
@@ -60,16 +61,26 @@
     <string name="menu_driver">Driver</string>
     <string name="menu_history">History</string>
     <string name="menu_account">Account</string>
+
+    <!-- Navigation Drawer Driver-->
+    <string name="menu_driver_home">Home</string>
+    <string name="menu_driver_history">History</string>
+    <string name="menu_driver_account">Account</string>
+
+    <!-- Manager Home page -->
     <string name="text_home_pending">Pending</string>
     <string name="text_home_on_the_way">On the Way</string>
 
-    <string name="driver_name">Driver</string>
-    <string name="vendor_name">Vendor</string>
-    <string name="building_name">Building</string>
+    <!-- Add New Package Fragement -->
+    <string name="new_package_driver">Driver</string>
+    <string name="new_package_vendor">Vendor</string>
+    <string name="new_package_building">Building</string>
+    <string name="new_package_weight">Weight</string>
+    <string name="action_add_new_package">ADD</string>
+
 
     <string name="label_package_fragment">Package</string>
     <string name="label_new_item_fragment">New Package</string>
-
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

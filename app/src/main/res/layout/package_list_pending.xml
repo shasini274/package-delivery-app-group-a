@@ -33,7 +33,7 @@
         style="@style/PackageListStyle"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/vendor_name"
+        android:text="@string/new_package_vendor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_green_dot_pending"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
         android:id="@+id/home_pending_building_text"
         style="@style/PackageListStyle"
         android:layout_marginStart="8dp"
-        android:text="@string/building_name"
+        android:text="@string/new_package_building"
         app:layout_constraintStart_toEndOf="@+id/image_gray_dot_pending"
         app:layout_constraintTop_toBottomOf="@+id/home_pending_vendor_text" />
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/driver_name"
+        android:text="@string/new_package_driver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/home_pending_vendor_text"
         app:layout_constraintTop_toTopOf="parent" />
