@@ -13,6 +13,7 @@ class ForgotPasswordActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
+        setupActionBar()
 
         fgt_submit.setOnClickListener{
             val email = fgt_email.text.trim().toString()
@@ -36,5 +37,15 @@ class ForgotPasswordActivity : BaseActivity() {
                     }
             }
         }
+    }
+    private fun setupActionBar() {
+        setSupportActionBar(toolbar_forgot_password_activity)
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+        }
+
+        toolbar_forgot_password_activity.setNavigationOnClickListener { onBackPressed() }
     }
 }

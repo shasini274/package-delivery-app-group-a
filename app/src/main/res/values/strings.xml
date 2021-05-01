@@ -47,6 +47,12 @@
     <string name="not_err_details">Successfully Registered!</string>
     <string name="suc_msg_email_sent">Email sent successful, Reset your password!</string>
     <string name="suc_msg_login">Welcome!</string>
+    <string name="info_permission">You already have the storage permission.</string>
+    <string name="err_permission">Permission denied to read storage.</string>
+    <string name="suc_permission">Permission granted to read storage.</string>
+    <string name="err_img_sel">Image selection failed!</string>
+    <string name="err_no_tel">Mobil number required!</string>
+    <string name="suc_update">Profile updated successfully</string>
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
@@ -85,6 +91,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account">Account</string>
+    <!-- Driver Profile -->
+    <string name="driver_pro_tittle">COMPLETE PROFILE</string>
+    <string name="content_description">Profile Completion</string>
+    <string name="driver_pro_photo">Profile Image</string>
+    <string name="driver_pro_fname">First Name</string>
+    <string name="driver_pro_lname">Last Name</string>
+    <string name="driver_pro_email">Email</string>
+    <string name="driver_pro_tel">Phone Number</string>
+    <string name="driver_pro_btn">Save</string>
 
     <string-array name="package_ontheway_vendor_array">
         <item>IKEA Southampton</item>
@@ -167,4 +182,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_driver_profile">DriverProfileActivity</string>
 </resources>

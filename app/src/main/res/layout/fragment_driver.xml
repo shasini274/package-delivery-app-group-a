@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.manager.driver.DriverFragment">
 
-<!--    <TextView
+    <TextView
         android:id="@+id/text_driver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,13 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="LinearLayoutManager"
-        android:scrollbars="vertical"/>
-    -->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layoutManager="LinearLayoutManager"-->
+<!--        android:scrollbars="vertical"/>-->
+
     <include layout="@layout/floating_action_btn" />
 
 </FrameLayout>

@@ -26,4 +26,3 @@
         app:layout_constraintTop_toBottomOf="@id/map_image_driver"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

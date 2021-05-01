@@ -1,5 +1,6 @@
 package com.example.package_delivery_app_group_a.ui.manager
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -9,14 +10,26 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.package_delivery_app_group_a.BaseActivity
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.firestore.FirestoreClass
+import com.example.package_delivery_app_group_a.models.User
+import com.example.package_delivery_app_group_a.utils.Constants
+import com.example.package_delivery_app_group_a.utils.GlideLoader
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.nav_header_main.*
 
-class ManagerMainActivity : AppCompatActivity() {
+class ManagerMainActivity : BaseActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_manager)
+
+//        val sharedPreferences =
+//            getSharedPreferences(Constants.PKG_APP_PREFERENCES, Context.MODE_PRIVATE)
+//        val username = sharedPreferences.getString(Constants.LOGGED_IN_USERNAME, "")!!
+//        tv_main.text="The logged in user is $username."
+
         val toolbar: Toolbar = findViewById(R.id.toolbar_manager)
         setSupportActionBar(toolbar)
 
@@ -40,5 +53,19 @@ class ManagerMainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_manager)  //content_main.xml
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+    private fun getUserDetails(){
+        showProgBar()
+        FirestoreClass().getUserDetails(this)
+    }
+    fun userDetailSuccess(user: User){
+        hideShowProgBar()
+        //val imgHolder = findViewById(R.id.imageView)
+        GlideLoader(this).loadUserPicture(user.image, user_img)
+        user_text.text = "${user.firstName} ${user.lastName}"
+    }
+    override fun onResume(){
+        super.onResume()
+        getUserDetails()
     }
 }

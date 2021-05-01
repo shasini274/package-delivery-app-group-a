@@ -11,6 +11,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.example.package_delivery_app_group_a.BaseActivity
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.firestore.FirestoreClass
+import com.example.package_delivery_app_group_a.models.User
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -113,15 +115,33 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                     OnCompleteListener<AuthResult> { task ->
                         hideShowProgBar()
                         if (task.isSuccessful) {
-                            //val firebaseUser: FirebaseUser = task.result!!.user!!
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+                            val user = User(
+                                firebaseUser.uid,
+                                fname,
+                                lname,
+                                email)
                             //"You are registered successfully. Your user id is ${firebaseUser.uid}",
-                            showErrorSnackBar(resources.getString(R.string.not_err_details), false)
-                            FirebaseAuth.getInstance().signOut()
-                            finish()
+//                            showErrorSnackBar(resources.getString(R.string.not_err_details), false)
+//                            FirebaseAuth.getInstance().signOut()
+//                            finish()
+                            FirestoreClass().registerUser(this@RegisterActivity, user)
                         } else {
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     })
         }
+    }
+
+    fun userRegistrationSuccess(){
+        // Hide the progress dialog
+        hideShowProgBar()
+        showErrorSnackBar(resources.getString(R.string.not_err_details), false)
+        /**
+         * Here the new user registered is automatically signed-in so we just sign-out the user from firebase
+         * and send him to Intro Screen for Sign-In
+         */
+        FirebaseAuth.getInstance().signOut()
+        finish()
     }
 }

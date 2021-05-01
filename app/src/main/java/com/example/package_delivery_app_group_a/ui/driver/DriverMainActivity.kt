@@ -9,10 +9,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.package_delivery_app_group_a.BaseActivity
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.firestore.FirestoreClass
+import com.example.package_delivery_app_group_a.models.User
+import com.example.package_delivery_app_group_a.utils.GlideLoader
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.nav_header_main.*
 
-class DriverMainActivity : AppCompatActivity() {
+class DriverMainActivity : BaseActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -37,4 +42,18 @@ class DriverMainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    private fun getUserDetails(){
+        showProgBar()
+        FirestoreClass().getUserDetails(this)
+    }
+    fun userDetailSuccess(user: User){
+        hideShowProgBar()
+        //val imgHolder = findViewById(R.id.imageView)
+        GlideLoader(this).loadUserPicture(user.image, user_img)
+        user_text.text = "${user.firstName} ${user.lastName}"
+    }
+    override fun onResume(){
+        super.onResume()
+        getUserDetails()
+    }
 }

@@ -8,7 +8,9 @@ import android.os.Handler
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
+import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
+import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 
 class LaunchActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.R)
@@ -27,7 +29,7 @@ class LaunchActivity : AppCompatActivity() {
         }
         Handler().postDelayed(
                 {
-                    startActivity(Intent(this@LaunchActivity, LoginActivity::class.java))
+                    startActivity(Intent(this@LaunchActivity, ManagerMainActivity::class.java))
                     finish()
                 },
                 1500
