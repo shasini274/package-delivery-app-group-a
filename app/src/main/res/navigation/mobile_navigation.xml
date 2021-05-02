@@ -50,8 +50,8 @@
         android:label="@string/menu_vendor"
         tools:layout="@layout/fragment_vendor" >
         <action
-            android:id="@+id/action_nav_vendor_to_addNewItemFragment"
-            app:destination="@id/newItemFragment" />
+            android:id="@+id/action_nav_vendor_to_addNewVendorFragment"
+            app:destination="@id/newVendorFragment" />
     </fragment>
 
     <fragment
@@ -60,8 +60,8 @@
         android:label="@string/menu_building"
         tools:layout="@layout/fragment_building" >
         <action
-            android:id="@+id/action_nav_building_to_addNewItemFragment"
-            app:destination="@id/newItemFragment" />
+            android:id="@+id/action_nav_building_to_addNewBuildingFragment"
+            app:destination="@id/newBuildingFragment" />
     </fragment>
 
     <fragment
@@ -70,8 +70,8 @@
         android:label="@string/menu_driver"
         tools:layout="@layout/fragment_driver" >
         <action
-            android:id="@+id/action_nav_driver_to_addNewItemFragment"
-            app:destination="@id/newItemFragment" />
+            android:id="@+id/action_nav_driver_to_addNewDriverFragment"
+            app:destination="@id/newDriverFragment" />
     </fragment>
 
     <fragment
@@ -95,6 +95,33 @@
         android:name="com.example.package_delivery_app_group_a.ui.manager.NewItemFragment"
         android:label="@string/label_new_item_fragment"
         tools:layout="@layout/fragment_new_item">
+        <argument
+            android:name="newItemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBuildingFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment"
+        android:label="@string/site_lbl"
+        tools:layout="@layout/fragment_new_building">
+        <argument
+            android:name="newItemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/newVendorFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment"
+        android:label="@string/vendor_lbl"
+        tools:layout="@layout/fragment_new_vendor">
+        <argument
+            android:name="newItemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/newDriverFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment"
+        android:label="@string/driver_lbl"
+        tools:layout="@layout/fragment_new_driver">
         <argument
             android:name="newItemType"
             app:argType="string" />

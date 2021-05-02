@@ -7,84 +7,59 @@
     tools:context=".ui.driver.DriverProfileActivity">
 
     <EditText
-        android:id="@+id/build_name"
+        android:id="@+id/driv_fname"
         android:layout_width="332dp"
         android:layout_height="51dp"
         android:layout_marginTop="80dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/site_name"
+        android:hint="@string/driver_fname"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:id="@+id/build_address"
-        android:layout_width="332dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/site_address"
-        android:inputType="textPostalAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/build_name" />
-
-    <EditText
-        android:id="@+id/build_email"
+        android:id="@+id/driv_lname"
         android:layout_width="332dp"
         android:layout_height="51dp"
         android:layout_marginTop="30dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/site_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/build_address" />
-
-    <EditText
-        android:id="@+id/build_co_person"
-        android:layout_width="332dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/site_person"
+        android:hint="@string/driver_lname"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/build_email" />
+        app:layout_constraintTop_toBottomOf="@+id/driv_fname" />
+
+
 
     <EditText
-        android:id="@+id/build_number"
+        android:id="@+id/driv_email"
         android:layout_width="332dp"
         android:layout_height="51dp"
         android:layout_marginTop="30dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/site_number"
-        android:inputType="phone"
+        android:hint="@string/driver_email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/build_co_person" />
+        app:layout_constraintTop_toBottomOf="@+id/driv_lname" />
+
 
     <Button
-        android:id="@+id/build_btn"
+        android:id="@+id/driv_btn"
         android:layout_width="332dp"
         android:layout_height="51dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="272dp"
         android:enabled="true"
-        android:text="@string/site_btn"
+        android:text="@string/driver_btn"
         android:textColor="#FFFFFF"
         app:backgroundTint="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/build_number" />
+        app:layout_constraintTop_toBottomOf="@+id/driv_email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.driver.DriverProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/vend_name"
+                android:layout_width="332dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="40dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/vendor_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/vend_address"
+                android:layout_width="332dp"
+                android:layout_height="101dp"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/vendor_address"
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_name" />
+
+            <EditText
+                android:id="@+id/vend_email"
+                android:layout_width="332dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/vendor_email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_address" />
+
+            <EditText
+                android:id="@+id/vend_co_person"
+                android:layout_width="332dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/vendor_person"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_email" />
+
+            <EditText
+                android:id="@+id/vend_number"
+                android:layout_width="332dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/vendor_number"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_co_person" />
+
+            <TextView
+                android:id="@+id/vend_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/vendor_items"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_number" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/vendor_type1"
+                app:layout_constraintEnd_toStartOf="@+id/ven_typ_2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_items" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="92dp"
+                android:text="@string/vendor_type2"
+                app:layout_constraintEnd_toStartOf="@+id/ven_typ_3"
+                app:layout_constraintTop_toBottomOf="@+id/vend_items" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/vendor_type3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vend_items" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/vendor_type4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_1" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/vendor_type5"
+                app:layout_constraintStart_toEndOf="@+id/ven_typ_4"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_2" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/vendor_type6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.975"
+                app:layout_constraintStart_toEndOf="@+id/ven_typ_5"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_3" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_7"
+                android:layout_width="85dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/vendor_type7"
+                app:layout_constraintEnd_toStartOf="@+id/ven_typ_8"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_4" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_8"
+                android:layout_width="102dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="60dp"
+                android:text="@string/vendor_type8"
+                app:layout_constraintEnd_toStartOf="@+id/ven_typ_9"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_5" />
+
+            <CheckBox
+                android:id="@+id/ven_typ_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/vendor_type9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ven_typ_6" />
+                        <Button
+                            android:id="@+id/vend_btn"
+                            android:layout_width="332dp"
+                            android:layout_height="51dp"
+                            android:layout_marginTop="80dp"
+                            android:enabled="true"
+                            android:text="@string/vendor_btn"
+                            android:textColor="#FFFFFF"
+                            app:backgroundTint="#009688"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ven_typ_6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+            <!--    <EditText-->
+            <!--        android:id="@+id/vend_name"-->
+            <!--        android:layout_width="332dp"-->
+            <!--        android:layout_height="51dp"-->
+            <!--        android:layout_marginTop="80dp"-->
+            <!--        android:autofillHints=""-->
+            <!--        android:ems="10"-->
+            <!--        android:hint="@string/vendor_name"-->
+            <!--        android:inputType="textPersonName"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintHorizontal_bias="0.506"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--    <EditText-->
+            <!--        android:id="@+id/vend_address"-->
+            <!--        android:layout_width="332dp"-->
+            <!--        android:layout_height="101dp"-->
+            <!--        android:layout_marginTop="30dp"-->
+            <!--        android:autofillHints=""-->
+            <!--        android:ems="10"-->
+            <!--        android:hint="@string/vendor_address"-->
+            <!--        android:inputType="textPostalAddress"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintHorizontal_bias="0.481"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@+id/vend_name" />-->
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>

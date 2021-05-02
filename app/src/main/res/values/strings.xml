@@ -101,6 +101,41 @@
     <string name="driver_pro_tel">Phone Number</string>
     <string name="driver_pro_btn">Save</string>
 
+    <!-- New Building -->
+    <string name="site_name">Site Name</string>
+    <string name="site_address">Address</string>
+    <string name="site_person">Contact Person</string>
+    <string name="site_number">Contact Number</string>
+    <string name="site_email">Email</string>
+    <string name="site_btn">Submit</string>
+    <string name="site_lbl">Add New Building Site</string>
+
+    <!-- New Vendor -->
+    <string name="vendor_name">Vendor Name</string>
+    <string name="vendor_address">Address</string>
+    <string name="vendor_person">Contact Person</string>
+    <string name="vendor_number">Contact Number</string>
+    <string name="vendor_email">Email</string>
+    <string name="vendor_btn">Submit</string>
+    <string name="vendor_lbl">Add New Vendor</string>
+    <string name="vendor_items">Select Items</string>
+    <string name="vendor_type1">Sand</string>
+    <string name="vendor_type2">Bricks</string>
+    <string name="vendor_type3">Rock</string>
+    <string name="vendor_type4">Cement</string>
+    <string name="vendor_type5">Steel Bars</string>
+    <string name="vendor_type6">Tools</string>
+    <string name="vendor_type7">Pipe Fittings</string>
+    <string name="vendor_type8">Hardware Elements</string>
+    <string name="vendor_type9">Tiles</string>
+
+    <!-- New Driver -->
+    <string name="driver_fname">Driver First Name</string>
+    <string name="driver_lname">Driver Last Name</string>
+    <string name="driver_email">Email</string>
+    <string name="driver_btn">Submit</string>
+    <string name="driver_lbl">Add New Driver</string>
+
     <string-array name="package_ontheway_vendor_array">
         <item>IKEA Southampton</item>
         <item>Buck and Hickman</item>

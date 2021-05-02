@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class VendorFragment : Fragment() {
@@ -30,9 +31,8 @@ class VendorFragment : Fragment() {
         })
         val itemType: String = "New Vendor"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
-
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(VendorFragmentDirections.actionNavVendorToAddNewItemFragment(itemType))
+            Navigation.findNavController(view).navigate(VendorFragmentDirections.actionNavVendorToAddNewVendorFragment(itemType))
         }
 
 
