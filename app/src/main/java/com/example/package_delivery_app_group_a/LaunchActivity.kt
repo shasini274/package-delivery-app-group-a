@@ -29,7 +29,7 @@ class LaunchActivity : AppCompatActivity() {
         }
         Handler().postDelayed(
                 {
-                    startActivity(Intent(this@LaunchActivity, ManagerMainActivity::class.java))
+                    startActivity(Intent(this@LaunchActivity, LoginActivity::class.java))
                     finish()
                 },
                 1500

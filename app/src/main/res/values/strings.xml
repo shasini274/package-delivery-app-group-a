@@ -44,15 +44,20 @@
     <string name="err_msg_cpassword">Please enter confirm password</string>
     <string name="err_msg_password_n_cpwd_mismatch">Passwords do not match</string>
     <string name="err_msg_input_required">Input Required!</string>
+    <string name="not_reg_user">Not a registered User!</string>
+    <string name="not_allowed_user">Not Allowed User!</string>
     <string name="not_err_details">Successfully Registered!</string>
+
     <string name="suc_msg_email_sent">Email sent successful, Reset your password!</string>
     <string name="suc_msg_login">Welcome!</string>
+
     <string name="info_permission">You already have the storage permission.</string>
     <string name="err_permission">Permission denied to read storage.</string>
     <string name="suc_permission">Permission granted to read storage.</string>
     <string name="err_img_sel">Image selection failed!</string>
     <string name="err_no_tel">Mobil number required!</string>
     <string name="suc_update">Profile updated successfully</string>
+
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>

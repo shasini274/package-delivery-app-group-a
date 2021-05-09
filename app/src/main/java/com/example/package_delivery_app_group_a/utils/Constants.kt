@@ -10,6 +10,9 @@ object Constants {
     // Firebase Constants
     // This  is used for the collection name for USERS.
     const val USERS: String = "users"
+    const val DRIVERS: String = "drivers"
+    const val BUILDINGSITES: String = "buildingsites"
+
     const val PKG_APP_PREFERENCES: String = "appPrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
     const val EXTRA_USER_DETAILS: String = "extra_user_details"
@@ -17,11 +20,17 @@ object Constants {
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 2
 
+    const val ID: String = "id"
+    const val FNAME: String = "firstName"
+    const val LNAME: String = "lastName"
+    const val EMAIL: String = "email"
     const val MOBILE: String = "mobile"
     const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
     const val IMAGE: String = "image"
     const val COMPLETED_PROFILE: String= "profileCompleted"
 
+    const val DRIVER = "driver"
+    const val MANAGER = "manager"
     fun showImageChooser(activity: Activity) {
         // An intent for launching the image selection of phone storage.
         val galleryIntent = Intent(
