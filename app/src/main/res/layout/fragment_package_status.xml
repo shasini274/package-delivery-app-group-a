@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.PackageStatusFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/package_status_image"
+                    android:layout_width="360dp"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_archive_24" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/package_status_material"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="Material"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/package_status_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="Size"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/package_status_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="Weight"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <CheckBox
+                android:id="@+id/check_status_pending"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/status_pending" />
+
+            <CheckBox
+                android:id="@+id/check_status_dispatched"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/stasus_dispatched" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/status_vender_name"
+                    style="@style/StatusAddrStyle"
+                    android:layout_marginTop="4dp"
+                    android:hint="Vendor Name" />
+
+                <TextView
+                    android:id="@+id/status_vender_address1"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Vendor Address 1" />
+
+                <TextView
+                    android:id="@+id/status_vender_address2"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Vendor Address 2" />
+
+                <TextView
+                    android:id="@+id/status_vender_postcode"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Post Code" />
+
+                <TextView
+                    android:id="@+id/status_vender_phone"
+                    style="@style/StatusAddrStyle"
+                    android:layout_marginBottom="0dp"
+                    android:hint="Phone Number" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/check_status_delivered"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/status_delivered" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/status_building_name"
+                    style="@style/StatusAddrStyle"
+                    android:layout_marginTop="4dp"
+                    android:hint="Building Name" />
+
+                <TextView
+                    android:id="@+id/status_building_address1"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Building Address 1" />
+
+                <TextView
+                    android:id="@+id/status_building_address2"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Building Address 2" />
+
+                <TextView
+                    android:id="@+id/status_building_postcode"
+                    style="@style/StatusAddrStyle"
+                    android:hint="Post Code" />
+
+                <TextView
+                    android:id="@+id/status_building_phone"
+                    style="@style/StatusAddrStyle"
+                    android:layout_marginBottom="0dp"
+                    android:hint="Phone Number" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/package_detail_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="16dp"
+                android:textSize="25sp"
+                tools:text="UID" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -2,7 +2,11 @@ package com.example.package_delivery_app_group_a.ui.manager
 
 import android.content.Context
 import android.os.Bundle
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -18,6 +22,14 @@ import com.example.package_delivery_app_group_a.utils.Constants
 import com.example.package_delivery_app_group_a.utils.GlideLoader
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.nav_header_main.*
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_package_status.*
+
 
 class ManagerMainActivity : BaseActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -32,14 +44,15 @@ class ManagerMainActivity : BaseActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar_manager)
         setSupportActionBar(toolbar)
-
 /*
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.packageStatusFragment, com.example.package_delivery_app_group_a.ui.PackageStatusFragment()).commit()
+        var userId = ""
+        userId = FirestoreClass().getCurrentUserID()
+        package_detail_number.text = userId
 */
+
         val drawerLayout: DrawerLayout = findViewById(R.id.manager_drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view_manager)
         val navController = findNavController(R.id.nav_host_fragment_manager)

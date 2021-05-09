@@ -8,21 +8,16 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
 
-    <ImageView
-        android:id="@+id/map_image_driver"
-        android:layout_width="411dp"
-        android:layout_height="300dp"
-        android:src="@drawable/ic_menu_driver"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <include
-        layout="@layout/package_list_ontheway"
+    <ListView
+        android:id="@+id/package_listView_driver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/map_image_driver"/>
+        android:clickable="true"
+        android:divider="@color/grey_very_light"
+        android:dividerHeight="3dp"
+        android:focusable="true"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

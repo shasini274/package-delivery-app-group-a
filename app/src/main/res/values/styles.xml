@@ -39,5 +39,20 @@
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintHorizontal_bias">0.0</item>
     </style>
+    <!-- Package Status checkbox style -->
+    <style name="StatusCheckboxStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginLeft">25dp</item>
+        <!--<item name="android:onClick">onCheckboxClicked</item> -->
+    </style>
+    <style name="StatusAddrStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
 
 </resources>

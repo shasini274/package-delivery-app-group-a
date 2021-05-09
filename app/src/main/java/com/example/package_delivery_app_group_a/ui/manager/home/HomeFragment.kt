@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         listview1.adapter = simpleAdapter
         listview1.setOnItemClickListener {
                 adapterView, view, position, id ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageDetailFragment(position))
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
         }
 
 
@@ -96,7 +96,7 @@ class HomeFragment : Fragment() {
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
 
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNewItemFragment(itemType))
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNewPackageFragment())
         }
 
         //two button: On the way, pending
@@ -112,7 +112,7 @@ class HomeFragment : Fragment() {
             listview1.adapter = simpleAdapter
             listview1.setOnItemClickListener {
                     adapterView, view, position, id ->
-                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageDetailFragment(position))
+                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
             }
 
         }
@@ -125,7 +125,7 @@ class HomeFragment : Fragment() {
             listview1.adapter = simpleAdapter1
             listview1.setOnItemClickListener {
                     adapterView, view, position, id ->
-                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageDetailFragment(position))
+                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
             }
 
         }

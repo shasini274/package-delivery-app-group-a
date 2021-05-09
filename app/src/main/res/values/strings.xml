@@ -141,6 +141,11 @@
     <string name="driver_btn">Submit</string>
     <string name="driver_lbl">Add New Driver</string>
 
+    <!-- Package Status -->
+    <string name="status_pending">Accept</string>
+    <string name="stasus_dispatched">Dispatched</string>
+    <string name="status_delivered">Delivered</string>
+
     <string-array name="package_ontheway_vendor_array">
         <item>IKEA Southampton</item>
         <item>Buck and Hickman</item>
@@ -194,6 +199,18 @@
         <item>Ruomeng Huang</item>
         <item>Alex S Weddell</item>
         <item>Mohammed El-Hajjar</item>
+    </string-array>
+    <string-array name="driver_package_vendor_array">
+        <item>Solent Stevedores Ltd</item>
+        <item>IKEA Southampton</item>
+    </string-array>
+    <string-array name="driver_package_building_array">
+        <item>King Edward School</item>
+        <item>Mayflower Halls</item>
+    </string-array>
+    <string-array name="driver_package_driver_array">
+        <item>Mohammed El-Hajjar</item>
+        <item>Basel Halak</item>
     </string-array>
 
     <!--    <string name="app_name">Affirmations</string>-->

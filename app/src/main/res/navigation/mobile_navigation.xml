@@ -37,11 +37,11 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_home_to_newItemFragment"
-            app:destination="@id/newItemFragment" />
+            android:id="@+id/action_nav_home_to_packageStatusFragment"
+            app:destination="@id/packageStatusFragment" />
         <action
-            android:id="@+id/action_nav_home_to_packageDetailFragment"
-            app:destination="@id/packageDetailFragment" />
+            android:id="@+id/action_nav_home_to_newPackageFragment"
+            app:destination="@id/newPackageFragment" />
     </fragment>
 
     <fragment
@@ -82,22 +82,19 @@
 
 
     <fragment
-        android:id="@+id/packageDetailFragment"
-        android:name="com.example.package_delivery_app_group_a.ui.manager.PackageDetailFragment"
+        android:id="@+id/packageStatusFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.PackageStatusFragment"
         android:label="@string/label_package_fragment"
-        tools:layout="@layout/fragment_package_detail" >
+        tools:layout="@layout/fragment_package_status" >
         <argument
             android:name="packageID"
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/newItemFragment"
-        android:name="com.example.package_delivery_app_group_a.ui.manager.NewItemFragment"
+        android:id="@+id/newPackageFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment"
         android:label="@string/label_new_item_fragment"
-        tools:layout="@layout/fragment_new_item">
-        <argument
-            android:name="newItemType"
-            app:argType="string" />
+        tools:layout="@layout/fragment_new_package">
     </fragment>
     <fragment
         android:id="@+id/newBuildingFragment"
