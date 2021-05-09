@@ -28,11 +28,7 @@ class NewDriverFragment : BaseFragment(){
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_new_driver, container, false)
-
-
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(NewDriverViewModel::class.java)

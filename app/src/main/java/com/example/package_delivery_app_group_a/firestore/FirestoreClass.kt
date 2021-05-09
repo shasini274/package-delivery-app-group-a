@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
+import androidx.fragment.app.Fragment
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.example.package_delivery_app_group_a.models.Driver
 import com.example.package_delivery_app_group_a.models.User
@@ -11,6 +12,7 @@ import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
+import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
@@ -238,6 +240,44 @@ class FirestoreClass {
                 Log.e(fragment.javaClass.simpleName,"Error while registering the user.",e)
             }
 
+    }
+    fun getBuildingList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.BUILDINGSITES)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val buildingSitesList: ArrayList<BuildingSite> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val buildingSites = i.toObject(BuildingSite::class.java)
+                    buildingSites!!.email=i.id
+//                    buildingSites!!.email = i.id
+
+                    buildingSitesList.add(buildingSites)
+                }
+
+                when (fragment) {
+                    is BuildingFragment -> {
+                        fragment.successBuildingSitesListFromFireStore(buildingSitesList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is BuildingFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                Log.e("Get Building List", "Error while getting product list.", e)
+            }
     }
 
 }

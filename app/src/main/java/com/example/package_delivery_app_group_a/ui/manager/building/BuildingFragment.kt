@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class BuildingFragment : Fragment() {
+class BuildingFragment : BaseFragment() {
     private lateinit var buildingViewModel: BuildingViewModel
 
 
@@ -38,6 +41,29 @@ class BuildingFragment : Fragment() {
         }
 
         return root
+    }
+    fun successBuildingSitesListFromFireStore(buildingSitesList: ArrayList<BuildingSite>) {
+
+        // Hide Progress dialog.
+        hideShowProgBar()
+
+        if (buildingSitesList.size > 0) {
+            rv_my_product_items.visibility = View.VISIBLE
+            tv_no_products_found.visibility = View.GONE
+
+            rv_my_product_items.layoutManager = LinearLayoutManager(activity)
+            rv_my_product_items.setHasFixedSize(true)
+
+            // TODO Step 7: Pass the third parameter value.
+            // START
+            val adapterProducts =
+                MyBuildingListAdapter(requireActivity(), buildingSitesList, this@BuildingFragment)
+            // END
+            rv_my_product_items.adapter = adapterProducts
+        } else {
+            rv_my_product_items.visibility = View.GONE
+            tv_no_products_found.visibility = View.VISIBLE
+        }
     }
 
 }
