@@ -82,6 +82,9 @@
     <string name="text_home_pending">Pending</string>
     <string name="text_home_on_the_way">On the Way</string>
 
+    <!-- Manager Building page -->
+    <string name="no_building_added_yet">No building added yet</string>
+
     <!-- Add New Package Fragement -->
     <string name="new_package_driver">Driver</string>
     <string name="new_package_vendor">Vendor</string>

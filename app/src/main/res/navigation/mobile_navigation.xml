@@ -101,27 +101,18 @@
         android:name="com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment"
         android:label="@string/site_lbl"
         tools:layout="@layout/fragment_new_building">
-        <argument
-            android:name="newItemType"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/newVendorFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment"
         android:label="@string/vendor_lbl"
         tools:layout="@layout/fragment_new_vendor">
-        <argument
-            android:name="newItemType"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/newDriverFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment"
         android:label="@string/driver_lbl"
         tools:layout="@layout/fragment_new_driver">
-        <argument
-            android:name="newItemType"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/nav_account"

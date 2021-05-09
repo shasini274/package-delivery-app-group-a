@@ -32,7 +32,7 @@ class VendorFragment : Fragment() {
         val itemType: String = "New Vendor"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(VendorFragmentDirections.actionNavVendorToAddNewVendorFragment(itemType))
+            Navigation.findNavController(view).navigate(VendorFragmentDirections.actionNavVendorToAddNewVendorFragment())
         }
 
 

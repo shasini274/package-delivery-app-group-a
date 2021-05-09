@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_building.*
 
 class BuildingFragment : BaseFragment() {
     private lateinit var buildingViewModel: BuildingViewModel
@@ -29,41 +31,58 @@ class BuildingFragment : BaseFragment() {
         buildingViewModel =
             ViewModelProvider(this).get(BuildingViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_building, container, false)
+/*
         val textView: TextView = root.findViewById(R.id.text_building)
         buildingViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+*/
         val itemType: String = "New Building"
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
 
+
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(BuildingFragmentDirections.actionNavBuildingToAddNewBuildingFragment(itemType))
+            Navigation.findNavController(view).navigate(BuildingFragmentDirections.actionNavBuildingToAddNewBuildingFragment())
         }
+
 
         return root
     }
-    fun successBuildingSitesListFromFireStore(buildingSitesList: ArrayList<BuildingSite>) {
 
+    override fun onResume() {
+        super.onResume()
+        getBuildingSitesListFromFireStore()
+    }
+
+    fun successBuildingSitesListFromFireStore(buildingSitesList: ArrayList<BuildingSite>) {
         // Hide Progress dialog.
         hideShowProgBar()
-
+        for(i in buildingSitesList) {
+            //log.i("Building name", i.title)
+        }
+/*
         if (buildingSitesList.size > 0) {
-            rv_my_product_items.visibility = View.VISIBLE
-            tv_no_products_found.visibility = View.GONE
+            rv_building_list_items.visibility = View.VISIBLE
+            text_no_building_found.visibility = View.GONE
 
-            rv_my_product_items.layoutManager = LinearLayoutManager(activity)
-            rv_my_product_items.setHasFixedSize(true)
+            rv_building_list_items.layoutManager = LinearLayoutManager(activity)
+            rv_building_list_items.setHasFixedSize(true)
 
             // TODO Step 7: Pass the third parameter value.
             // START
             val adapterProducts =
                 MyBuildingListAdapter(requireActivity(), buildingSitesList, this@BuildingFragment)
             // END
-            rv_my_product_items.adapter = adapterProducts
+            rv_building_list_items.adapter = adapterProducts
         } else {
-            rv_my_product_items.visibility = View.GONE
-            tv_no_products_found.visibility = View.VISIBLE
+            rv_building_list_items.visibility = View.GONE
+            text_no_building_found.visibility = View.VISIBLE
         }
+*/
+    }
+    private fun getBuildingSitesListFromFireStore() {
+        showProgBar()
+        FirestoreClass().getBuildingList(this)
     }
 
 }

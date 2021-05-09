@@ -257,7 +257,7 @@ class FirestoreClass {
                 for (i in document.documents) {
 
                     val buildingSites = i.toObject(BuildingSite::class.java)
-                    buildingSites!!.email=i.id
+                    buildingSites!!.building_id=i.id
 //                    buildingSites!!.email = i.id
 
                     buildingSitesList.add(buildingSites)
