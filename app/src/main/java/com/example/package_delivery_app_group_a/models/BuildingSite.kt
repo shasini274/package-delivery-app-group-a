@@ -5,10 +5,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class BuildingSite (
-    val id: String = "",
+//    val id: String = "",
     val siteName: String="",
     val address: String="",
     val email: String = "",
     val contactPerson: String = "",
-    val contactNumber: Long = 0):Parcelable
+    val contactNumber: String="",
+    val building_id: String = ""):Parcelable
 

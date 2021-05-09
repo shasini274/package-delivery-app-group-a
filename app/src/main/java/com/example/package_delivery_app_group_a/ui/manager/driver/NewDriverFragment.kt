@@ -9,13 +9,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import com.example.package_delivery_app_group_a.models.Driver
 import com.example.package_delivery_app_group_a.models.User
 import com.google.firebase.auth.FirebaseAuth
 
-class NewDriverFragment : Fragment(){
+class NewDriverFragment : BaseFragment(){
     companion object {
         fun newInstance() = NewDriverFragment()
     }
@@ -61,6 +62,7 @@ class NewDriverFragment : Fragment(){
 //        val dEmail = drivEmail.text.trim().toString()
 
         if (checkLayoutInputs(drivFname, drivLname, drivEmail)) {
+            showProgBar()
             Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
             val driver = Driver(
                 drivEmail,
@@ -70,7 +72,9 @@ class NewDriverFragment : Fragment(){
         }
     }
     private fun checkLayoutInputs(drivFname: String, drivLname: String, drivEmail: String): Boolean {
+        hideShowProgBar()
         return when {
+
             drivFname.isEmpty() && drivLname.isEmpty() && drivEmail.isEmpty() -> {
                 println("Input Required")
 //                Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
@@ -98,7 +102,7 @@ class NewDriverFragment : Fragment(){
     }
     fun driverRegistrationSuccess(){
         // Hide the progress dialog
-//        hideShowProgBar()
+        hideShowProgBar()
 //        showErrorSnackBar(resources.getString(R.string.not_err_details), false)
         /**
          * Here the new user registered is automatically signed-in so we just sign-out the user from firebase

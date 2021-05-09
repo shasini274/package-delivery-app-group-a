@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import com.example.package_delivery_app_group_a.models.BuildingSite
@@ -16,7 +17,7 @@ import com.example.package_delivery_app_group_a.models.Driver
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class NewBuildingFragment : Fragment() {
+class NewBuildingFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = NewBuildingFragment()
@@ -69,6 +70,7 @@ class NewBuildingFragment : Fragment() {
 //        val dEmail = drivEmail.text.trim().toString()
 
         if (checkLayoutInputs(buildName, buildAddress, buildEmail, buildPerson, buildNumber)) {
+            showProgBar()
             Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
             val building = BuildingSite(
                 buildName,
@@ -78,6 +80,7 @@ class NewBuildingFragment : Fragment() {
         }
     }
     private fun checkLayoutInputs(buildName: String, buildAddress: String, buildEmail: String, buildPerson:String, buildNumber:String ): Boolean {
+        hideShowProgBar()
         return when {
             buildName.isEmpty() && buildAddress.isEmpty() && buildEmail.isEmpty() && buildPerson.isEmpty() && buildNumber.isEmpty()-> {
                 println("Input Required")
@@ -114,7 +117,7 @@ class NewBuildingFragment : Fragment() {
     }
     fun buildingRegistrationSuccess(){
         // Hide the progress dialog
-//        hideShowProgBar()
+        hideShowProgBar()
 //        showErrorSnackBar(resources.getString(R.string.not_err_details), false)
         /**
          * Here the new user registered is automatically signed-in so we just sign-out the user from firebase
@@ -125,3 +128,5 @@ class NewBuildingFragment : Fragment() {
     }
 
 }
+
+

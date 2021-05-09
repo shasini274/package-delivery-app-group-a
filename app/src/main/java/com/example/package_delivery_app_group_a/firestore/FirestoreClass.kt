@@ -211,7 +211,8 @@ class FirestoreClass {
     fun addDriver(fragment: NewDriverFragment, driverInfo: Driver){
         mFireStore.collection(Constants.DRIVERS)
             // Document ID for users fields. Here the document it is the User ID.
-            .document(driverInfo.id)
+//            .document(driverInfo.id)
+            .document()
             // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
             .set(driverInfo, SetOptions.merge())
             .addOnSuccessListener {
@@ -226,7 +227,7 @@ class FirestoreClass {
     fun addBuilding(fragment: NewBuildingFragment, buildingInfo: BuildingSite){
         mFireStore.collection(Constants.BUILDINGSITES)
             // Document ID for users fields. Here the document it is the User ID.
-            .document(buildingInfo.id)
+            .document()
             // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
             .set(buildingInfo, SetOptions.merge())
             .addOnSuccessListener {
