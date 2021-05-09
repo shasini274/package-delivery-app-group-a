@@ -10,6 +10,6 @@ class BuildingSite (
     val address: String="",
     val email: String = "",
     val contactPerson: String = "",
-    val contactNumber: String="",
+    val contactNumber: Long = 0,
     var building_id: String = ""):Parcelable
 

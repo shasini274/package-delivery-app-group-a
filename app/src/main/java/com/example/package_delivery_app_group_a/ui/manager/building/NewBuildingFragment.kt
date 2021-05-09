@@ -72,10 +72,11 @@ class NewBuildingFragment : BaseFragment() {
         if (checkLayoutInputs(buildName, buildAddress, buildEmail, buildPerson, buildNumber)) {
             showProgBar()
             Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
+            val buildNum = buildNumber.toLong()
             val building = BuildingSite(
                 buildName,
                 buildAddress,
-                buildEmail, buildPerson, buildNumber)
+                buildEmail, buildPerson, buildNum)
             FirestoreClass().addBuilding(this, building)
         }
     }

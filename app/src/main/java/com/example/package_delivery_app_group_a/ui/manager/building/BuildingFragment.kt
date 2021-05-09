@@ -13,6 +13,7 @@ import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.adapter.BuildingListAdapter
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_building.*
@@ -57,10 +58,7 @@ class BuildingFragment : BaseFragment() {
     fun successBuildingSitesListFromFireStore(buildingSitesList: ArrayList<BuildingSite>) {
         // Hide Progress dialog.
         hideShowProgBar()
-        for(i in buildingSitesList) {
-            //log.i("Building name", i.title)
-        }
-/*
+
         if (buildingSitesList.size > 0) {
             rv_building_list_items.visibility = View.VISIBLE
             text_no_building_found.visibility = View.GONE
@@ -70,15 +68,15 @@ class BuildingFragment : BaseFragment() {
 
             // TODO Step 7: Pass the third parameter value.
             // START
-            val adapterProducts =
-                MyBuildingListAdapter(requireActivity(), buildingSitesList, this@BuildingFragment)
+            val adapterBuildings =
+                BuildingListAdapter(requireActivity(), buildingSitesList)
             // END
-            rv_building_list_items.adapter = adapterProducts
+            rv_building_list_items.adapter = adapterBuildings
         } else {
             rv_building_list_items.visibility = View.GONE
             text_no_building_found.visibility = View.VISIBLE
         }
-*/
+
     }
     private fun getBuildingSitesListFromFireStore() {
         showProgBar()
