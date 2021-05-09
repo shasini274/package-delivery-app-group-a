@@ -5,22 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.package_delivery_app_group_a.models.BuildingSite
-import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.R
-import com.example.package_delivery_app_group_a.utils.GlideLoader
+import com.example.package_delivery_app_group_a.models.BuildingSite
+import com.example.package_delivery_app_group_a.models.Driver
 import kotlinx.android.synthetic.main.building_items_row.view.*
+import kotlinx.android.synthetic.main.building_items_row.view.building_item
+import kotlinx.android.synthetic.main.driver_items_row.view.*
 
-//import kotlinx.android.synthetic.main.item_list_layout.view.*
-
-/**
- * A adapter class for products list items.
- */
-// TODO Step 6: Add the parameter as products fragment as we cannot call the delete function of products fragment on the delete button click.
-// START
-open class BuildingListAdapter(
+open class DriverListAdapter(
     private val context: Context,
-    private var list: ArrayList<BuildingSite>
+    private var list: ArrayList<Driver>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 // END
 
@@ -33,7 +27,7 @@ open class BuildingListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
             LayoutInflater.from(context).inflate(
-                R.layout.building_items_row,
+                R.layout.driver_items_row,
                 parent,
                 false
             )
@@ -55,11 +49,11 @@ open class BuildingListAdapter(
 
         if (holder is MyViewHolder) {
 
-            holder.itemView.building_item.text = model.siteName
+            holder.itemView.driver_item.text = model.firstName + model.lastName
 
             // TODO Step 4: Assigning the click event to the delete button.
             // START
-            holder.itemView.building_item.setOnClickListener {
+            holder.itemView.driver_item.setOnClickListener {
 
                 // TODO Step 8: Now let's call the delete function of the ProductsFragment.
                 // START

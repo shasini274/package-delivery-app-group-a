@@ -14,6 +14,7 @@ import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
+import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.example.package_delivery_app_group_a.utils.Constants
@@ -273,6 +274,44 @@ class FirestoreClass {
                 // Hide the progress dialog if there is any error based on the base class instance.
                 when (fragment) {
                     is BuildingFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                Log.e("Get Building List", "Error while getting product list.", e)
+            }
+    }
+    fun getDriverList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.DRIVERS)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Drivers List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val driversList: ArrayList<Driver> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val drivers = i.toObject(Driver::class.java)
+                    drivers!!.id=i.id
+//                    buildingSites!!.email = i.id
+
+                    driversList.add(drivers)
+                }
+
+                when (fragment) {
+                    is DriverFragment -> {
+                        fragment.successDriverListFromFireStore(driversList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is DriverFragment -> {
                         fragment.hideShowProgBar()
                     }
                 }
