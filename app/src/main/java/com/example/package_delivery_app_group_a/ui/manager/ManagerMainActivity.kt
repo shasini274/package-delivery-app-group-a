@@ -47,7 +47,7 @@ class ManagerMainActivity : BaseActivity() {
 /*
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.packageStatusFragment, com.example.package_delivery_app_group_a.ui.PackageStatusFragment()).commit()
+        fragmentTransaction.replace(R.id.packageStatusFragment, com.example.package_delivery_app_group_a.ui.manager.PackageStatusFragment()).commit()
         var userId = ""
         userId = FirestoreClass().getCurrentUserID()
         package_detail_number.text = userId

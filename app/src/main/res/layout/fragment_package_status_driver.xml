@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.manager.PackageStatusFragment">
+    tools:context=".ui.driver.PackageStatusDriverFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/package_status_image"
+                    android:id="@+id/package_status_image_driver"
                     android:layout_width="360dp"
                     android:layout_height="180dp"
                     android:layout_marginLeft="40dp"
@@ -42,7 +42,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/package_status_material"
+                        android:id="@+id/package_status_material_driver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -51,7 +51,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/package_status_size"
+                        android:id="@+id/package_status_size_driver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -60,7 +60,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/package_status_weight"
+                        android:id="@+id/package_status_weight_driver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -74,24 +74,34 @@
 
 
             <TextView
-                android:id="@+id/package_status_driver_1step"
+                android:id="@+id/package_status_accepted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:visibility="gone"
+                android:text="Accepted"
+                android:textSize="24sp"
                 android:layout_marginTop="16dp"
-                android:text="Pending"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
+                android:layout_marginLeft="25dp"
+                android:background="@color/grey_very_light"/>
+            <CheckBox
+                android:id="@+id/check_status_pending_driver"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/status_pending" />
             <TextView
-                android:id="@+id/package_status_driver_2step"
+                android:id="@+id/package_status_dispatched"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:visibility="gone"
+                android:text="Dispatched"
+                android:textSize="24sp"
                 android:layout_marginTop="16dp"
-                android:text="Vendor"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:layout_marginLeft="25dp"
+                android:background="@color/grey_very_light"/>
+
+            <CheckBox
+                android:id="@+id/check_status_dispatched_driver"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/stasus_dispatched" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -100,38 +110,43 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/status_vender_name"
+                    android:id="@+id/status_vender_name_driver"
                     style="@style/StatusAddrStyle"
                     android:layout_marginTop="4dp"
                     android:hint="Vendor Name" />
 
                 <TextView
-                    android:id="@+id/status_vender_address"
+                    android:id="@+id/status_vender_address_driver"
                     style="@style/StatusAddrStyle"
                     android:hint="Vendor Address" />
 
 
                 <TextView
-                    android:id="@+id/status_vender_postcode"
+                    android:id="@+id/status_vender_postcode_driver"
                     style="@style/StatusAddrStyle"
                     android:hint="Post Code" />
 
                 <TextView
-                    android:id="@+id/status_vender_phone"
+                    android:id="@+id/status_vender_phone_driver"
                     style="@style/StatusAddrStyle"
                     android:layout_marginBottom="0dp"
                     android:hint="Phone Number" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/package_status_driver_3step"
+                android:id="@+id/package_status_delivered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:visibility="gone"
+                android:text="Delivered"
+                android:textSize="24sp"
                 android:layout_marginTop="16dp"
-                android:text="Building"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:layout_marginLeft="25dp"
+                android:background="@color/grey_very_light"/>
+            <CheckBox
+                android:id="@+id/check_status_delivered_driver"
+                style="@style/StatusCheckboxStyle"
+                android:text="@string/status_delivered" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -140,31 +155,31 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/status_building_name"
+                    android:id="@+id/status_building_name_driver"
                     style="@style/StatusAddrStyle"
                     android:layout_marginTop="4dp"
                     android:hint="Building Name" />
 
                 <TextView
-                    android:id="@+id/status_building_address"
+                    android:id="@+id/status_building_address_driver"
                     style="@style/StatusAddrStyle"
                     android:hint="Building Address" />
 
 
                 <TextView
-                    android:id="@+id/status_building_postcode"
+                    android:id="@+id/status_building_postcode_driver"
                     style="@style/StatusAddrStyle"
                     android:hint="Post Code" />
 
                 <TextView
-                    android:id="@+id/status_building_phone"
+                    android:id="@+id/status_building_phone_driver"
                     style="@style/StatusAddrStyle"
                     android:layout_marginBottom="0dp"
                     android:hint="Phone Number" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/package_detail_number"
+                android:id="@+id/package_detail_number_driver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"

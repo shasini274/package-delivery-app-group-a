@@ -54,7 +54,7 @@ class DriverHomeFragment : Fragment() {
 
         packageList.setOnItemClickListener {
                 adapterView, view, position, id ->
-            Navigation.findNavController(view).navigate(DriverHomeFragmentDirections.actionNavHomeDriverToPackageStatusFragmentDriver())
+            Navigation.findNavController(view).navigate(DriverHomeFragmentDirections.actionNavHomeDriverToPackageStatusDriverFragment())
         }
 
 

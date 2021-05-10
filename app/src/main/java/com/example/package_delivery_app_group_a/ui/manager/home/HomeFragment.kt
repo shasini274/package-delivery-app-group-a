@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         listview1.adapter = simpleAdapter
         listview1.setOnItemClickListener {
                 adapterView, view, position, id ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
         }
 
 
@@ -112,7 +112,7 @@ class HomeFragment : Fragment() {
             listview1.adapter = simpleAdapter
             listview1.setOnItemClickListener {
                     adapterView, view, position, id ->
-                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
+                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
             }
 
         }
@@ -125,7 +125,7 @@ class HomeFragment : Fragment() {
             listview1.adapter = simpleAdapter1
             listview1.setOnItemClickListener {
                     adapterView, view, position, id ->
-                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(position))
+                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
             }
 
         }

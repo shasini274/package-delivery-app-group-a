@@ -11,8 +11,8 @@
         android:label="@string/menu_driver_home"
         tools:layout="@layout/fragment_home_driver" >
         <action
-            android:id="@+id/action_nav_home_driver_to_packageStatusFragmentDriver"
-            app:destination="@id/packageStatusFragmentDriver" />
+            android:id="@+id/action_nav_home_driver_to_packageStatusDriverFragment"
+            app:destination="@id/packageStatusDriverFragment" />
     </fragment>
 
     <fragment
@@ -27,10 +27,10 @@
         android:label="@string/menu_driver_history"
         tools:layout="@layout/fragment_history_driver" />
     <fragment
-        android:id="@+id/packageStatusFragmentDriver"
-        android:name="com.example.package_delivery_app_group_a.ui.PackageStatusFragment"
-        android:label="Package Status"
-        tools:layout="@layout/fragment_package_status" />
+        android:id="@+id/packageStatusDriverFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.driver.PackageStatusDriverFragment"
+        android:label="fragment_package_status_driver"
+        tools:layout="@layout/fragment_package_status_driver" />
 
     <!--    <fragment
     android:id="@+id/packageDetailFragment"

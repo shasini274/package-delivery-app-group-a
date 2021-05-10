@@ -83,13 +83,9 @@
 
     <fragment
         android:id="@+id/packageStatusFragment"
-        android:name="com.example.package_delivery_app_group_a.ui.PackageStatusFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.PackageStatusFragment"
         android:label="@string/label_package_fragment"
-        tools:layout="@layout/fragment_package_status" >
-        <argument
-            android:name="packageID"
-            app:argType="integer" />
-    </fragment>
+        tools:layout="@layout/fragment_package_status" />
     <fragment
         android:id="@+id/newPackageFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment"
