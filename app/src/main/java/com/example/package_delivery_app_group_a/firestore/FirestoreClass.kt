@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
+import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment
@@ -249,6 +250,41 @@ class FirestoreClass {
             }
 
     }
+//    fun addPackage(fragment: NewPackageFragment, packageInfo: Package){
+//        mFireStore.collection(Constants.PACKAGES)
+//            // Document ID for users fields. Here the document it is the User ID.
+//            .document()
+//            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
+//            .set(packageInfo, SetOptions.merge())
+//            .addOnSuccessListener {
+//                fragment.packageRegistrationSuccess()
+//            }
+//            .addOnFailureListener { e ->
+////                activity.hideShowProgBar()
+//                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
+//            }
+//
+//    }
+//    fun updateStatusPackage(fragment: NewPackageFragment, packageId: String, packageHashMap: HashMap<String, Any>){
+//        mFireStore.collection(Constants.PACKAGES)
+//            // Document ID for users fields. Here the document it is the User ID.
+//            .document(packageId)
+//            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
+//            .update(packageHashMap)
+//            .addOnSuccessListener {
+//                when(fragment){
+//                    is DriverHomeFragment ->{
+//                        fragment.packageUpdateSuccess()
+//                    }
+//                }
+//
+//            }
+//            .addOnFailureListener { e ->
+////                activity.hideShowProgBar()
+//                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
+//            }
+//
+//    }
     fun getBuildingList(fragment: Fragment) {
         // The collection name for PRODUCTS
         mFireStore.collection(Constants.BUILDINGSITES)
@@ -353,6 +389,45 @@ class FirestoreClass {
                         fragment.successVendorListFromFireStore(vendorsList)
                     }
                 }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is NewPackageFragment -> {
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
+                    }
+                }
+                Log.e("Get DriverList", "Error while getting product list.", e)
+            }
+    }
+    fun getPackageList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.PACKAGES)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+//                Log.e("Vendors List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val packagesList: ArrayList<Package> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val packages = i.toObject(Package::class.java)
+                    packages!!.pacakage_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    packagesList.add(packages)
+                }
+
+//                when (fragment) {
+//                    is NewPackageFragment -> {
+//                        fragment.successVendorListFromFireStore(packagesList)
+//                    }
+//                }
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error based on the base class instance.

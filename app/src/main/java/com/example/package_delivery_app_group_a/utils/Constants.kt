@@ -13,6 +13,7 @@ object Constants {
     const val DRIVERS: String = "drivers"
     const val BUILDINGSITES: String = "buildingsites"
     const val VENDORS: String = "vendors"
+    const val PACKAGES: String = "packages"
     const val ITEMS: String = "items"
 
     const val PKG_APP_PREFERENCES: String = "appPrefs"

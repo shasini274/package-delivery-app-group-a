@@ -1,31 +1,60 @@
 package com.example.package_delivery_app_group_a.adapter
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.models.BuildingSite
+import com.example.package_delivery_app_group_a.models.Driver
 import com.example.package_delivery_app_group_a.models.Vendor
-import kotlinx.android.synthetic.main.vendor_spinner_item.view.*
+import kotlinx.android.synthetic.main.building_items_row.view.*
+import kotlinx.android.synthetic.main.building_items_row.view.building_item
+import kotlinx.android.synthetic.main.driver_items_row.view.*
 
-class VendorListAdapter(context: Context, vendorList: ArrayList<Vendor>):
-    ArrayAdapter<Vendor>(context, 0, vendorList){
+open class VendorListAdapter(
+    private val context: Context,
+    private var list: ArrayList<Vendor>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+// END
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return initView(position, convertView, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return MyViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.vendor_items_row,
+                parent,
+                false
+            )
+        )
     }
 
-    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return initView(position, convertView, parent)
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val model = list[position]
+
+        if (holder is MyViewHolder) {
+
+            holder.itemView.driver_item.text = model.vendorName
+
+            // TODO Step 4: Assigning the click event to the delete button.
+            // START
+            holder.itemView.driver_item.setOnClickListener {
+
+                // TODO Step 8: Now let's call the delete function of the ProductsFragment.
+                // START
+
+                // END
+            }
+            // END
+        }
     }
 
-    fun initView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val vendor =getItem(position)
-        val view = LayoutInflater.from(context).inflate(R.layout.vendor_spinner_item, parent, false)
-//        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.vendor_spinner_item, parent, true)
-        view.vendor_item.text = vendor!!.vendorName
 
-        return view
+    override fun getItemCount(): Int {
+        return list.size
     }
+
+
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }
