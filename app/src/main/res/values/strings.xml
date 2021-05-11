@@ -101,6 +101,7 @@
     <string name="account">Account</string>
     <!-- Driver Profile -->
     <string name="driver_pro_tittle">COMPLETE PROFILE</string>
+    <string name="driver_procomp_tittle">EDIT PROFILE</string>
     <string name="content_description">Profile Completion</string>
     <string name="driver_pro_photo">Profile Image</string>
     <string name="driver_pro_fname">First Name</string>
@@ -143,6 +144,11 @@
     <string name="driver_email">Email</string>
     <string name="driver_btn">Submit</string>
     <string name="driver_lbl">Add New Driver</string>
+    <!--Account -->
+    <string name="edit_lbl">Edit</string>
+    <string name="logout_lbl">Logout</string>
+
+
 
     <!-- Package Status -->
     <string name="status_pending">Accept</string>

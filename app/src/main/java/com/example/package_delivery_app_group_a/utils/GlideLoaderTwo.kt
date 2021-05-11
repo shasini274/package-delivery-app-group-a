@@ -1,13 +1,12 @@
 package com.example.package_delivery_app_group_a.utils
 
-import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment
 import java.io.IOException
 
-class GlideLoader(val context: Context) {
+class GlideLoaderTwo(val context: AccountFragment) {
     fun loadUserPicture(image: Any, imageView: ImageView) {
         try {
             // Load the user image in the ImageView.

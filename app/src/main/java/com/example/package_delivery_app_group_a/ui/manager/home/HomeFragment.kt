@@ -160,6 +160,13 @@ class HomeFragment : Fragment() {
                 PackagePendingListAdapter(requireActivity(), packageList)
             package_listView.adapter = adapterPackages
 
+//            package_listView.setOnClickListener{}
+
+            //            listview1.setOnItemClickListener {
+//                    adapterView, view, position, id ->
+//                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
+//            }
+
 //            val adapterPackages =
 //                PackageOnWayListAdapter(requireActivity(), packageList)
 //            rv_driver_list_items.adapter = adapterPackages

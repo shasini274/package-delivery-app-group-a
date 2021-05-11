@@ -9,8 +9,8 @@ class User (
     val firstName: String="",
     val lastName: String="",
     val email: String = "",
+    val role: String = "",
     val image: String = "",
     val mobile: Long = 0,
-    val role: String = "",
     val profileCompleted: Int =0):Parcelable
 

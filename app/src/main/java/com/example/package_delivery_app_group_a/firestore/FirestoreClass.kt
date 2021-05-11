@@ -3,15 +3,16 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
-import android.preference.PreferenceManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
+import com.example.package_delivery_app_group_a.ui.driver.account.DriverAccountFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment
+import com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
@@ -49,7 +50,7 @@ class FirestoreClass {
                 }
     }
     fun checkDriverExist(activity: RegisterActivity, email: String){
-        mFireStore.collection(Constants.USERS)
+        mFireStore.collection(Constants.DRIVERS)
             .document(email)
             .get()
             .addOnSuccessListener { document ->
@@ -136,6 +137,41 @@ class FirestoreClass {
                 )
             }
     }
+    fun getUserDetailsinFragments(fragment: Fragment) {
+
+        // Here we pass the collection name from which we wants the data.
+        mFireStore.collection(Constants.USERS)
+            // The document id to get the Fields of user.
+            .document(getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val user = document.toObject(User::class.java)!!
+
+                when (fragment) {
+                    is AccountFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        fragment.userDetailSuccess(user)
+                    }
+                    is DriverAccountFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        fragment.userDetailSuccess(user)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error. And print the error in log.
+                when (fragment) {
+                    is AccountFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                    is DriverAccountFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+            }
+    }
     fun updateDriverProfileData(activity: Activity, userHashMap: HashMap<String, Any>){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserID())
@@ -210,7 +246,7 @@ class FirestoreClass {
         mFireStore.collection(Constants.DRIVERS)
             // Document ID for users fields. Here the document it is the User ID.
 //            .document(driverInfo.id)
-            .document()
+            .document(driverInfo.id)
             // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
             .set(driverInfo, SetOptions.merge())
             .addOnSuccessListener {

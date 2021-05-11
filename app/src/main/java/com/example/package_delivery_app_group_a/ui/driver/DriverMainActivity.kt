@@ -1,6 +1,5 @@
 package com.example.package_delivery_app_group_a.ui.driver
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout

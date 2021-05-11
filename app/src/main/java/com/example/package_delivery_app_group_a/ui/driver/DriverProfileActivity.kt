@@ -6,17 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.package_delivery_app_group_a.BaseActivity
-import com.example.package_delivery_app_group_a.MainActivity
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import com.example.package_delivery_app_group_a.models.User
@@ -40,18 +34,36 @@ class DriverProfileActivity : BaseActivity(), View.OnClickListener {
 
         if(intent.hasExtra(Constants.EXTRA_USER_DETAILS)) {
             mUserDetails = intent.getParcelableExtra(Constants.EXTRA_USER_DETAILS)!!
+
+
         }
-        pro_fname.isEnabled = false
-        pro_fname.setText(mUserDetails.firstName)
 
-        pro_lname.isEnabled = false
-        pro_lname.setText(mUserDetails.lastName)
+        if (mUserDetails.profileCompleted == 0) {
+            pro_title.text = resources.getString(R.string.driver_pro_tittle)
+            pro_fname.isEnabled = false
+            pro_fname.setText(mUserDetails.firstName)
 
-        pro_email.isEnabled = false
-        pro_email.setText(mUserDetails.email)
+            pro_lname.isEnabled = false
+            pro_lname.setText(mUserDetails.lastName)
 
+            pro_email.isEnabled = false
+            pro_email.setText(mUserDetails.email)
 
+        }
+        else{
+            pro_title.text = resources.getString(R.string.driver_procomp_tittle)
+            GlideLoader(this@DriverProfileActivity).loadUserPicture(mUserDetails.image, pro_photo)
+            pro_fname.setText(mUserDetails.firstName)
+            pro_lname.setText(mUserDetails.lastName)
 
+            pro_email.isEnabled = false
+            pro_email.setText(mUserDetails.email)
+
+            if(mUserDetails.mobile != 0L){
+                pro_phone.setText(mUserDetails.mobile.toString())
+            }
+
+        }
         pro_photo.setOnClickListener(this)
         pro_btn.setOnClickListener(this)
     }

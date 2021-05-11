@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.Package
+import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragmentDirections
 import kotlinx.android.synthetic.main.package_list_ontheway.view.*
 
 class PackageOnWayListAdapter (
@@ -32,6 +34,9 @@ class PackageOnWayListAdapter (
         holder.buildingTextView.text = model.buildingName
         holder.driverTextView.text = model.driverName
 
+        holder.itemView.setOnClickListener{
+
+        }
 
     }
     override fun getItemCount(): Int {
