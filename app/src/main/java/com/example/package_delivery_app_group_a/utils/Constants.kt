@@ -12,6 +12,8 @@ object Constants {
     const val USERS: String = "users"
     const val DRIVERS: String = "drivers"
     const val BUILDINGSITES: String = "buildingsites"
+    const val VENDORS: String = "vendors"
+    const val ITEMS: String = "items"
 
     const val PKG_APP_PREFERENCES: String = "appPrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
@@ -31,6 +33,8 @@ object Constants {
 
     const val DRIVER = "driver"
     const val MANAGER = "manager"
+
+
     fun showImageChooser(activity: Activity) {
         // An intent for launching the image selection of phone storage.
         val galleryIntent = Intent(

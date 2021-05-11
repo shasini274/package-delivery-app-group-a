@@ -20,9 +20,6 @@ import kotlinx.android.synthetic.main.fragment_building.*
 
 class BuildingFragment : BaseFragment() {
     private lateinit var buildingViewModel: BuildingViewModel
-
-
-
     private lateinit var viewModel: BuildingViewModel
 
     override fun onCreateView(

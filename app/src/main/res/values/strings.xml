@@ -149,6 +149,9 @@
     <string name="stasus_dispatched">Dispatched</string>
     <string name="status_delivered">Delivered</string>
 
+    <!--Spinners-->
+    <string name="vendor_select">Select Vendor</string>
+
     <string-array name="package_ontheway_vendor_array">
         <item>IKEA Southampton</item>
         <item>Buck and Hickman</item>

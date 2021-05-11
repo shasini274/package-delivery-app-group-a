@@ -68,7 +68,7 @@ class NewDriverFragment : BaseFragment(){
         }
     }
     private fun checkLayoutInputs(drivFname: String, drivLname: String, drivEmail: String): Boolean {
-        hideShowProgBar()
+//        hideShowProgBar()
         return when {
 
             drivFname.isEmpty() && drivLname.isEmpty() && drivEmail.isEmpty() -> {

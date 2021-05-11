@@ -5,27 +5,24 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.example.package_delivery_app_group_a.models.BuildingSite
-import com.example.package_delivery_app_group_a.models.Driver
-import com.example.package_delivery_app_group_a.models.User
+import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
+import com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
+import com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.example.package_delivery_app_group_a.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.model.mutation.Precondition.exists
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import java.nio.file.Files.exists
 
 class FirestoreClass {
 
@@ -55,18 +52,13 @@ class FirestoreClass {
             .addOnSuccessListener { document ->
                 Log.i(activity.javaClass.simpleName, document.toString())
                 if (document.exists()) {
-                    println("AAAA")
-                    println(document)
                     activity.driverDetailSuccess(1)
                 }
                 else{
-                    println("BBBBBB")
-                    println(document)
                     activity.driverDetailSuccess(0)
                 }
             }
             .addOnFailureListener { e ->
-                println("CCCCCCCC")
                 activity.driverDetailSuccess(0)
             }
     }
@@ -242,6 +234,21 @@ class FirestoreClass {
             }
 
     }
+    fun addVendor(fragment: NewVendorFragment, vendorInfo: Vendor){
+        mFireStore.collection(Constants.VENDORS)
+            // Document ID for users fields. Here the document it is the User ID.
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
+            .set(vendorInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                fragment.vendorRegistrationSuccess()
+            }
+            .addOnFailureListener { e ->
+//                activity.hideShowProgBar()
+                Log.e(fragment.javaClass.simpleName,"Error while registering the user.",e)
+            }
+
+    }
     fun getBuildingList(fragment: Fragment) {
         // The collection name for PRODUCTS
         mFireStore.collection(Constants.BUILDINGSITES)
@@ -312,11 +319,89 @@ class FirestoreClass {
                 // Hide the progress dialog if there is any error based on the base class instance.
                 when (fragment) {
                     is DriverFragment -> {
-                        fragment.hideShowProgBar()
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
                     }
                 }
-                Log.e("Get Building List", "Error while getting product list.", e)
+                Log.e("Get DriverList", "Error while getting product list.", e)
             }
     }
+    fun getVendorList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.VENDORS)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+//                Log.e("Vendors List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val vendorsList: ArrayList<Vendor> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val vendors = i.toObject(Vendor::class.java)
+                    vendors!!.vendor_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    vendorsList.add(vendors)
+                }
+
+                when (fragment) {
+                    is NewPackageFragment -> {
+                        fragment.successVendorListFromFireStore(vendorsList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is NewPackageFragment -> {
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
+                    }
+                }
+                Log.e("Get DriverList", "Error while getting product list.", e)
+            }
+    }
+//    fun getItemList(fragment: Fragment) {
+//        // The collection name for PRODUCTS
+//        mFireStore.collection(Constants.ITEMS)
+//            .get() // Will get the documents snapshots.
+//            .addOnSuccessListener { document ->
+//
+//                // Here we get the list of boards in the form of documents.
+//                Log.e("Items List", document.documents.toString())
+//
+//                // Here we have created a new instance for Products ArrayList.
+//                val itemsList: ArrayList<Item> = ArrayList()
+//
+//                // A for loop as per the list of documents to convert them into Products ArrayList.
+//                for (i in document.documents) {
+//
+//                    val items = i.toObject(Item::class.java)
+//                    items!!.item_id=i.id
+////                    buildingSites!!.email = i.id
+//
+//                    itemsList.add(items)
+//                }
+//
+//                when (fragment) {
+//                    is NewVendorFragment -> {
+//                        fragment.successItemListFromFireStore(itemsList)
+//                    }
+//                }
+//            }
+//            .addOnFailureListener { e ->
+//                // Hide the progress dialog if there is any error based on the base class instance.
+//                when (fragment) {
+//                    is NewVendorFragment -> {
+//                        fragment.hideShowProgBar()
+//                    }
+//                }
+//                Log.e("Get Item List", "Error while getting product list.", e)
+//            }
+//    }
 
 }
