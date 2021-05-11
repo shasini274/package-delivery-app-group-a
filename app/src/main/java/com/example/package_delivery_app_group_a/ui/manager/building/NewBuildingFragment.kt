@@ -70,7 +70,7 @@ class NewBuildingFragment : BaseFragment() {
 //        val dEmail = drivEmail.text.trim().toString()
 
         if (checkLayoutInputs(buildName, buildAddress, buildEmail, buildPerson, buildNumber)) {
-            showProgBar()
+//            showProgBar()
             Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
             val buildNum = buildNumber.toLong()
             val building = BuildingSite(
@@ -81,7 +81,7 @@ class NewBuildingFragment : BaseFragment() {
         }
     }
     private fun checkLayoutInputs(buildName: String, buildAddress: String, buildEmail: String, buildPerson:String, buildNumber:String ): Boolean {
-        hideShowProgBar()
+//        hideShowProgBar()
         return when {
             buildName.isEmpty() && buildAddress.isEmpty() && buildEmail.isEmpty() && buildPerson.isEmpty() && buildNumber.isEmpty()-> {
                 println("Input Required")
@@ -118,7 +118,7 @@ class NewBuildingFragment : BaseFragment() {
     }
     fun buildingRegistrationSuccess(){
         // Hide the progress dialog
-        hideShowProgBar()
+//        hideShowProgBar()
 //        showErrorSnackBar(resources.getString(R.string.not_err_details), false)
         /**
          * Here the new user registered is automatically signed-in so we just sign-out the user from firebase

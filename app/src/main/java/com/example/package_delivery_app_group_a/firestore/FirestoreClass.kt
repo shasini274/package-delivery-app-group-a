@@ -3,12 +3,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
-import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment
@@ -16,6 +16,7 @@ import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFrag
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
+import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.example.package_delivery_app_group_a.utils.Constants
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+
 
 class FirestoreClass {
 
@@ -401,9 +403,11 @@ class FirestoreClass {
                 Log.e("Get DriverList", "Error while getting product list.", e)
             }
     }
-    fun getPackageList(fragment: Fragment) {
+    fun getPackagePendingList(fragment: Fragment) {
+
         // The collection name for PRODUCTS
         mFireStore.collection(Constants.PACKAGES)
+            .whereEqualTo(Constants.STATUS, 0)
             .get() // Will get the documents snapshots.
             .addOnSuccessListener { document ->
 
@@ -411,6 +415,7 @@ class FirestoreClass {
 //                Log.e("Vendors List", document.documents.toString())
 
                 // Here we have created a new instance for Products ArrayList.
+                Log.e("Products List", document.documents.toString())
                 val packagesList: ArrayList<Package> = ArrayList()
 
                 // A for loop as per the list of documents to convert them into Products ArrayList.
@@ -423,16 +428,58 @@ class FirestoreClass {
                     packagesList.add(packages)
                 }
 
-//                when (fragment) {
-//                    is NewPackageFragment -> {
-//                        fragment.successVendorListFromFireStore(packagesList)
-//                    }
-//                }
+                when (fragment) {
+                    is HomeFragment -> {
+                        fragment.successPackagePendingListFromFireStore(packagesList)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error based on the base class instance.
                 when (fragment) {
-                    is NewPackageFragment -> {
+                    is HomeFragment -> {
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
+                    }
+                }
+                Log.e("Get DriverList", "Error while getting product list.", e)
+            }
+    }
+    fun getPackageOnWayList(fragment: Fragment) {
+
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.PACKAGES)
+            .whereEqualTo(Constants.STATUS, 1)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+//                Log.e("Vendors List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                Log.e("Products List", document.documents.toString())
+                val packagesList: ArrayList<Package> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+                    val packages = i.toObject(Package::class.java)
+
+                    packages!!.pacakage_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    packagesList.add(packages)
+                }
+
+                when (fragment) {
+                    is HomeFragment -> {
+                        fragment.successPackageOnwayListFromFireStore(packagesList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is HomeFragment -> {
 //                        fragment.hideShowProgBar()
                         Log.e("Get DriverList", "Error while getting product list.", e)
                     }
@@ -478,5 +525,6 @@ class FirestoreClass {
 //                Log.e("Get Item List", "Error while getting product list.", e)
 //            }
 //    }
+
 
 }

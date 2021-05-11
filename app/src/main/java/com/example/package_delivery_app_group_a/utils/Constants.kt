@@ -34,6 +34,8 @@ object Constants {
 
     const val DRIVER = "driver"
     const val MANAGER = "manager"
+    var STATUS = "status"
+
 
 
     fun showImageChooser(activity: Activity) {

@@ -27,9 +27,9 @@ class PackagePendingListAdapter (
     }
     override fun onBindViewHolder(holder: PackagePendingListAdapter.PackagePendingViewHolder, position: Int) {
         val model = list[position]
-        holder.vendorTextView.text = model.vendor_id
-        holder.buildingTextView.text = model.building_id
-        holder.driverTextView.text = model.driver_id
+        holder.vendorTextView.text = model.vendorName
+        holder.buildingTextView.text = model.buildingName
+        holder.driverTextView.text = model.driverName
 
 
     }
