@@ -19,31 +19,31 @@ import kotlinx.android.synthetic.main.fragment_package_detail.*
 
 class NewPackageFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_new_package, container, false)
-        getVendorListFromFirestore()
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//    }
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        // Inflate the layout for this fragment
+//        val root = inflater.inflate(R.layout.fragment_new_package, container, false)
 //        getVendorListFromFirestore()
-/*        val args: NewPackageFragmentArgs by navArgs()
-
-        val tvTemp: TextView = root.findViewById(R.id.new_item_test_text2)
-        tvTemp.text = args.newItemType
-
-        (activity as AppCompatActivity).supportActionBar?.title = args.newItemType
-        */
-
-            return root
-    }
-
+////        getVendorListFromFirestore()
+///*        val args: NewPackageFragmentArgs by navArgs()
+//
+//        val tvTemp: TextView = root.findViewById(R.id.new_item_test_text2)
+//        tvTemp.text = args.newItemType
+//
+//        (activity as AppCompatActivity).supportActionBar?.title = args.newItemType
+//        */
+//
+//            return root
+//    }
+//
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
 //        super.onViewCreated(view, savedInstanceState)
@@ -51,32 +51,32 @@ class NewPackageFragment : Fragment() {
 //    }
 //
 //
-    fun successVendorListFromFireStore(vendorList: ArrayList<Vendor>) {
-        if (spinner != null) {
-            print("HELLLOOOOOO")
-            if (vendorList.size > 0) {
-                val adapter = VendorListAdapter(requireActivity(), vendorList)
-                spinner.adapter = adapter
-
-                vendor_type.onItemSelectedListener = object :
-                    AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View, position: Int, id: Long
-                    ) {
-                        val selectedItem = parent.getItemAtPosition(position)
-                        println("******")
-                        println(selectedItem)
-                    }
-
-                    override fun onNothingSelected(parent: AdapterView<*>) {
-                        // write code to perform some action
-                    }
-                }
-            }
-        }
-
-    }
+//    fun successVendorListFromFireStore(vendorList: ArrayList<Vendor>) {
+//        if (spinner != null) {
+//            print("HELLLOOOOOO")
+//            if (vendorList.size > 0) {
+//                val adapter = VendorListAdapter(requireActivity(), vendorList)
+//                spinner.adapter = adapter
+//
+//                vendor_type.onItemSelectedListener = object :
+//                    AdapterView.OnItemSelectedListener {
+//                    override fun onItemSelected(
+//                        parent: AdapterView<*>,
+//                        view: View, position: Int, id: Long
+//                    ) {
+//                        val selectedItem = parent.getItemAtPosition(position)
+//                        println("******")
+//                        println(selectedItem)
+//                    }
+//
+//                    override fun onNothingSelected(parent: AdapterView<*>) {
+//                        // write code to perform some action
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
 //        val spinner = vendor_type
 
 //        if (vendor_type != null){
@@ -115,10 +115,10 @@ class NewPackageFragment : Fragment() {
 //        }
 
 //    }
-    private fun getVendorListFromFirestore(){
-//        showProgBar()
-        FirestoreClass().getVendorList(this)
-    }
+//    private fun getVendorListFromFirestore(){
+////        showProgBar()
+//        FirestoreClass().getVendorList(this)
+//    }
 
 
 }

@@ -384,11 +384,11 @@ class FirestoreClass {
                     vendorsList.add(vendors)
                 }
 
-                when (fragment) {
-                    is NewPackageFragment -> {
-                        fragment.successVendorListFromFireStore(vendorsList)
-                    }
-                }
+//                when (fragment) {
+//                    is NewPackageFragment -> {
+//                        fragment.successVendorListFromFireStore(vendorsList)
+//                    }
+//                }
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error based on the base class instance.
