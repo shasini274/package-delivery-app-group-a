@@ -81,6 +81,9 @@
             android:id="@+id/action_nav_driver_to_addNewDriverFragment"
             app:destination="@id/newDriverFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_nav_driver_to_driverProfileFragment"
+            app:destination="@id/driverProfileFragment" />
     </fragment>
 
     <fragment
@@ -271,6 +274,25 @@
             app:argType="long" />
         <argument
             android:name="vendorProId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverProfileFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.driver.DriverProfileFragment"
+        android:label="Driver Profile"
+        tools:layout="@layout/fragment_profile_driver">
+        <argument
+            android:name="driverProFName"
+            app:argType="string" />
+        <argument android:name="driverProLName" />
+        <argument
+            android:name="driverProMobile"
+            app:argType="long" />
+        <argument
+            android:name="driverProId"
+            app:argType="string" />
+        <argument
+            android:name="driverProImage"
             app:argType="string" />
     </fragment>
 

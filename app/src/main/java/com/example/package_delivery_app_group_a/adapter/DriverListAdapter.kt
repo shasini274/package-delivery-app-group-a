@@ -4,10 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.example.package_delivery_app_group_a.models.Driver
+import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragmentDirections
+import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragmentDirections
 import com.example.package_delivery_app_group_a.utils.GlideLoader
 import kotlinx.android.synthetic.main.building_items_row.view.*
 import kotlinx.android.synthetic.main.building_items_row.view.building_item
@@ -37,14 +40,14 @@ open class DriverListAdapter(
             GlideLoader(context).loadUserPicture(model.image, holder.itemView.driver_image)
             holder.itemView.driver_item.text = model.firstName + model.lastName
 
-            // TODO Step 4: Assigning the click event to the delete button.
-            // START
-            holder.itemView.driver_item.setOnClickListener {
-
-                // TODO Step 8: Now let's call the delete function of the ProductsFragment.
-                // START
-
-                // END
+            holder.itemView.driver_item.setOnClickListener { view ->
+                Navigation.findNavController(view).navigate(
+                    DriverFragmentDirections.actionNavDriverToDriverProfileFragment(
+                        model.firstName,
+                        model.lastName,
+                        model.mobile,
+                        model.id,
+                        model.image))
             }
             // END
         }

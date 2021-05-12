@@ -28,7 +28,6 @@ open class ItemListAdapter(
         )
     }
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = list[position]
 

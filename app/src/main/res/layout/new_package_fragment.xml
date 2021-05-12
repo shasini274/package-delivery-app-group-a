@@ -11,6 +11,14 @@
     android:padding="@dimen/item_dashboard_padding"
     tools:context=".ui.manager.newpackage.NewPackageFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +96,7 @@
 
         <LinearLayout
             android:id="@+id/new_package_item_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/dashboard_item_details_bg"
             android:orientation="vertical"
@@ -115,7 +123,7 @@
             android:layout_width="332dp"
             android:layout_height="51dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:enabled="true"
             android:gravity="center_horizontal"
             android:text="@string/vendor_btn"
@@ -123,5 +131,5 @@
             app:backgroundTint="#009688" />
 
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>
