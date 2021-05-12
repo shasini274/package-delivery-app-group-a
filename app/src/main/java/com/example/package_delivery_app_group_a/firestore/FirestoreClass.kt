@@ -12,6 +12,7 @@ import com.example.package_delivery_app_group_a.ui.driver.account.DriverAccountF
 import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
+import com.example.package_delivery_app_group_a.ui.manager.PackageStatusFragment
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackageFragment
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackVendorListFragment
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackDriverListFragment
@@ -398,6 +399,120 @@ class FirestoreClass {
                 Log.e("Get Building List", "Error while getting product list.", e)
             }
     }
+    fun getPackageDetail(fragment: Fragment, vendorId: String, buildingId: String, driverId: String, packageId: String) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.BUILDINGSITES)
+            // The document id to get the Fields of user.
+            .document(buildingId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val building = document.toObject(BuildingSite::class.java)
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (building != null) {
+                            fragment.buildingInSuccess(building)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+                }
+        mFireStore.collection(Constants.DRIVERS)
+            // The document id to get the Fields of user.
+            .document(driverId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val driver = document.toObject(Driver::class.java)
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (driver != null) {
+                            fragment.driverInSuccess(driver)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+        mFireStore.collection(Constants.VENDORS)
+            // The document id to get the Fields of user.
+            .document(vendorId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val vendor = document.toObject(Vendor::class.java)
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (vendor != null) {
+                            fragment.vendorInSuccess(vendor)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+        mFireStore.collection(Constants.PACKAGES)
+            // The document id to get the Fields of user.
+            .document(packageId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val packaged = document.toObject(Package::class.java)
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (packaged != null) {
+                            fragment.packageInSuccess(packaged)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+
+
+    }
+
     fun getDriverList(fragment: Fragment) {
         // The collection name for PRODUCTS
         mFireStore.collection(Constants.DRIVERS)

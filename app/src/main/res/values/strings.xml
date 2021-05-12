@@ -150,6 +150,13 @@
 
 
     <!-- Package Status -->
+    <string name="status">Status :  </string>
+    <string name="status_id">Accepted</string>
+    <string name="driver_name">Driver Name   </string>
+    <string name="driver_pack_email">Driver Email</string>
+    <string name="driver_contact_number">Contact Number</string>
+
+    <string name="packageID">Order Id</string>
     <string name="status_pending">Accept</string>
     <string name="stasus_dispatched">Dispatched</string>
     <string name="status_delivered">Delivered</string>

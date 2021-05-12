@@ -96,11 +96,21 @@
         android:label="@string/label_package_fragment"
         tools:layout="@layout/fragment_package_status" >
         <argument
-            android:name="packageStatusId"
+            android:name="packageVendorId"
             app:argType="string" />
         <argument
-            android:name="packageStatus"
-            app:argType="integer" />
+            android:name="packageBuildingId"
+            app:argType="string" />
+        <argument
+            android:name="packageDriverId"
+            app:argType="string" />
+        <argument
+            android:name="packageId"
+            app:argType="string" />
+<!--        <argument-->
+<!--            android:name="packageStatusId"-->
+<!--            app:argType="string" />-->
+
     </fragment>
     <fragment
         android:id="@+id/newBuildingFragment"

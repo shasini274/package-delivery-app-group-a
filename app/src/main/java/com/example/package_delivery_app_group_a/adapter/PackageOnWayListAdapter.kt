@@ -36,10 +36,16 @@ class PackageOnWayListAdapter (
 
         holder.itemView.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(
-                model.pacakage_id,
-                3
-                //model.status
-            ))
+                model.vendor_id,
+                model.building_id,
+                model.driver_id,
+                model.pacakage_id))
+
+//            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(
+//                model.pacakage_id,
+//                3
+//                //model.status
+//            ))
         }
 
     }

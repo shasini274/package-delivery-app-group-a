@@ -11,4 +11,4 @@ class Vendor (
     val contactPerson: String = "",
     val contactNumber: Long = 0,
 //    val item: String="",
-    var vendor_id: String = ""): Parcelable
+    var vendor_id: String = "nothing"): Parcelable
