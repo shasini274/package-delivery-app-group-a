@@ -188,6 +188,9 @@
             app:destination="@id/newPackBuildingListFragment"
             app:popUpTo="@id/newPackageFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="newPackageParamName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/newPackDriverListFragment"
@@ -225,7 +228,7 @@
     <fragment
         android:id="@+id/buildingProfileFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.building.BuildingProfileFragment"
-        android:label="Building"
+        android:label="Building Information"
         tools:layout="@layout/fragment_profile_building">
         <argument
             android:name="buildingProName"
@@ -249,7 +252,7 @@
     <fragment
         android:id="@+id/vendorProfileFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.VendorProfileFragment"
-        android:label="fragment_profile_vendor"
+        android:label="Vendor Information"
         tools:layout="@layout/fragment_profile_vendor" >
         <argument
             android:name="vendorProName"
@@ -270,6 +273,7 @@
             android:name="vendorProId"
             app:argType="string" />
     </fragment>
+
 
     <!--    <fragment-->
 <!--        android:id="@+id/mainManagerFragment"-->

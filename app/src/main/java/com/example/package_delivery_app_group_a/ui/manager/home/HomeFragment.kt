@@ -46,10 +46,11 @@ class HomeFragment : Fragment() {
         // Floating Action Button
         val itemType: Int = 100
         val itemId: String = ""
+        val itemName: String = ""
         val fab: FloatingActionButton = root.findViewById(R.id.floating_action_btn_1)
 
         fab.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNewPackageFragment(itemType,itemId))
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNewPackageFragment(itemType,itemId,itemName))
         }
 
         //two button: On the way, pending

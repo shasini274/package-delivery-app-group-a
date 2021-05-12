@@ -62,7 +62,11 @@ open class BuildingListInNewPackAdapter(
             // TODO Step 4: Assigning the click event to the delete button.
             // START
             holder.itemView.building_item.setOnClickListener {view ->
-                Navigation.findNavController(view).navigate(NewPackBuildingListFragmentDirections.actionNewPackBuildingListFragmentToNewPackageFragment(3,model.building_id))
+                Navigation.findNavController(view).navigate(NewPackBuildingListFragmentDirections.actionNewPackBuildingListFragmentToNewPackageFragment(
+                    3,
+                    model.building_id,
+                    model.siteName
+                ))
             }
             // END
         }

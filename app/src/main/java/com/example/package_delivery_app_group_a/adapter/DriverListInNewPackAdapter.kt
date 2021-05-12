@@ -42,7 +42,11 @@ open class DriverListInNewPackAdapter(
             holder.itemView.driver_item.text = model.firstName + model.lastName
 
             holder.itemView.driver_item.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(NewPackDriverListFragmentDirections.actionNewPackDriverListFragmentToNewPackageFragment(2,model.id))
+                Navigation.findNavController(view).navigate(NewPackDriverListFragmentDirections.actionNewPackDriverListFragmentToNewPackageFragment(
+                    2,
+                    model.id,
+                    model.firstName + model.lastName
+                ))
             }
 
         }

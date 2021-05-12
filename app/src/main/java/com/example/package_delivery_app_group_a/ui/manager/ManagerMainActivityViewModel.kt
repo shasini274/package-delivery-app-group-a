@@ -7,4 +7,8 @@ class ManagerMainActivityViewModel: ViewModel() {
     var selectDriverId = MutableLiveData<String>()
     var selectVendorId = MutableLiveData<String>()
     var selectBuildingId = MutableLiveData<String>()
+
+    var selectDriverName = MutableLiveData<String>()
+    var selectVendorName = MutableLiveData<String>()
+    var selectBuildingName = MutableLiveData<String>()
 }

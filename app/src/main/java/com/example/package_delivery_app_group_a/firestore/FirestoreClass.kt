@@ -332,21 +332,21 @@ class FirestoreClass {
             }
 
     }
-//    fun addPackage(fragment: NewPackageFragment, packageInfo: Package){
-//        mFireStore.collection(Constants.PACKAGES)
-//            // Document ID for users fields. Here the document it is the User ID.
-//            .document()
-//            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
-//            .set(packageInfo, SetOptions.merge())
-//            .addOnSuccessListener {
-//                fragment.packageRegistrationSuccess()
-//            }
-//            .addOnFailureListener { e ->
-////                activity.hideShowProgBar()
-//                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
-//            }
-//
-//    }
+    fun addPackage(fragment: NewPackageFragment, packageInfo: Package){
+        mFireStore.collection(Constants.PACKAGES)
+            // Document ID for users fields. Here the document it is the User ID.
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
+            .set(packageInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                fragment.packageRegistrationSuccess()
+            }
+            .addOnFailureListener { e ->
+//                activity.hideShowProgBar()
+                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
+            }
+
+    }
     fun updateStatusPackage(fragment: Fragment, packageId: String, packageHashMap: HashMap<String, Any>){
         mFireStore.collection(Constants.PACKAGES)
             // Document ID for users fields. Here the document it is the User ID.
@@ -903,44 +903,44 @@ class FirestoreClass {
                 Log.e("Get DriverList", "Error while getting product list.", e)
             }
     }
-//    fun getItemList(fragment: Fragment) {
-//        // The collection name for PRODUCTS
-//        mFireStore.collection(Constants.ITEMS)
-//            .get() // Will get the documents snapshots.
-//            .addOnSuccessListener { document ->
-//
-//                // Here we get the list of boards in the form of documents.
-//                Log.e("Items List", document.documents.toString())
-//
-//                // Here we have created a new instance for Products ArrayList.
-//                val itemsList: ArrayList<Item> = ArrayList()
-//
-//                // A for loop as per the list of documents to convert them into Products ArrayList.
-//                for (i in document.documents) {
-//
-//                    val items = i.toObject(Item::class.java)
-//                    items!!.item_id=i.id
-////                    buildingSites!!.email = i.id
-//
-//                    itemsList.add(items)
-//                }
-//
-//                when (fragment) {
-//                    is NewVendorFragment -> {
-//                        fragment.successItemListFromFireStore(itemsList)
-//                    }
-//                }
-//            }
-//            .addOnFailureListener { e ->
-//                // Hide the progress dialog if there is any error based on the base class instance.
-//                when (fragment) {
-//                    is NewVendorFragment -> {
-//                        fragment.hideShowProgBar()
-//                    }
-//                }
-//                Log.e("Get Item List", "Error while getting product list.", e)
-//            }
-//    }
+    fun getItemList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.ITEMS)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Items List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val itemsList: ArrayList<Item> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val items = i.toObject(Item::class.java)
+                    items!!.item_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    itemsList.add(items)
+                }
+
+                when (fragment) {
+                    is NewPackageFragment -> {
+                        fragment.successItemListFromFireStore(itemsList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is NewPackageFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                Log.e("Get Item List", "Error while getting product list.", e)
+            }
+    }
 
 
 }

@@ -42,7 +42,11 @@ open class VendorListInNewPackAdapter(
             holder.itemView.vendor_item.text = model.vendorName
 
             holder.itemView.vendor_item.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(NewPackVendorListFragmentDirections.actionNewPackVendorListFragmentToNewPackageFragment(1,model.vendor_id))
+                Navigation.findNavController(view).navigate(NewPackVendorListFragmentDirections.actionNewPackVendorListFragmentToNewPackageFragment(
+                    1,
+                    model.vendor_id,
+                    model.vendorName
+                    ))
             }
         }
     }
