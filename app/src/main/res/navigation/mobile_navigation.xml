@@ -87,8 +87,24 @@
         android:id="@+id/nav_history"
         android:name="com.example.package_delivery_app_group_a.ui.manager.history.HistoryFragment"
         android:label="@string/menu_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_nav_history_to_packageStatusFragment"
+            app:destination="@id/packageStatusFragment" />
+<!--        <argument-->
+<!--            android:name="packageVendorId"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="packageBuildingId"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="packageDriverId"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="packageId"-->
+<!--            app:argType="string" />-->
 
+    </fragment>
 
     <fragment
         android:id="@+id/packageStatusFragment"

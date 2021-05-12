@@ -5,10 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.manager.history.HistoryFragment">
 
-    <TextView
-        android:id="@+id/text_history"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/package_deliveredlistView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="672dp"
+        android:clickable="true"
+        android:divider="@color/grey_very_light"
+        android:dividerHeight="3dp"
+        android:focusable="true"
+         />
 
 </FrameLayout>

@@ -22,6 +22,7 @@ import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFrag
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
+import com.example.package_delivery_app_group_a.ui.manager.history.HistoryFragment
 import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragment
@@ -682,6 +683,50 @@ class FirestoreClass {
                 // Hide the progress dialog if there is any error based on the base class instance.
                 when (fragment) {
                     is HomeFragment -> {
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
+                    }
+                }
+                Log.e("Get DriverList", "Error while getting product list.", e)
+            }
+    }
+    fun getPackageDeliveredList(fragment: Fragment) {
+
+        // The collection name for PRODUCTS
+
+        mFireStore.collection(Constants.PACKAGES)
+            .whereEqualTo(Constants.STATUS, 1)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+//                Log.e("Vendors List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                Log.e("Products List", document.documents.toString())
+                val packagesList: ArrayList<Package> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+                    val packages = i.toObject(Package::class.java)
+
+                    packages!!.pacakage_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    packagesList.add(packages)
+                }
+
+                when (fragment) {
+                    is HistoryFragment -> {
+                        fragment.successPackageDeliveredListFromFireStore(packagesList)
+                    }
+
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is HistoryFragment -> {
 //                        fragment.hideShowProgBar()
                         Log.e("Get DriverList", "Error while getting product list.", e)
                     }
