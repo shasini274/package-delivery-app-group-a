@@ -11,7 +11,9 @@ import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
 import com.example.package_delivery_app_group_a.ui.driver.account.DriverAccountFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
-import com.example.package_delivery_app_group_a.ui.manager.NewPackageFragment
+import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackageFragment
+import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackVendorListFragment
+import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackDriverListFragment
 import com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
@@ -19,6 +21,7 @@ import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment
+import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.example.package_delivery_app_group_a.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -387,6 +390,9 @@ class FirestoreClass {
                     is DriverFragment -> {
                         fragment.successDriverListFromFireStore(driversList)
                     }
+                    is NewPackDriverListFragment -> {
+                        fragment.successDriverListFromFireStore(driversList)
+                    }
                 }
             }
             .addOnFailureListener { e ->
@@ -427,6 +433,14 @@ class FirestoreClass {
 //                        fragment.successVendorListFromFireStore(vendorsList)
 //                    }
 //                }
+                when (fragment) {
+                    is VendorFragment -> {
+                        fragment.successVendorListFromFireStore(vendorsList)
+                    }
+                    is NewPackVendorListFragment -> {
+                        fragment.successVendorListFromFireStore(vendorsList)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error based on the base class instance.

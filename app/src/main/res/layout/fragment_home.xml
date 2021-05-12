@@ -71,7 +71,7 @@
                 android:dividerHeight="3dp"
                 android:focusable="true"
                 app:layoutManager="LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="@+id/home_ontheway_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

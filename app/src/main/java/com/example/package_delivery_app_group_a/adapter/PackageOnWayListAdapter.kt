@@ -34,8 +34,8 @@ class PackageOnWayListAdapter (
         holder.buildingTextView.text = model.buildingName
         holder.driverTextView.text = model.driverName
 
-        holder.itemView.setOnClickListener{
-
+        holder.itemView.setOnClickListener { view ->
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(model.pacakage_id))
         }
 
     }
