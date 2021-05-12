@@ -30,7 +30,14 @@
         android:id="@+id/packageStatusDriverFragment"
         android:name="com.example.package_delivery_app_group_a.ui.driver.PackageStatusDriverFragment"
         android:label="fragment_package_status_driver"
-        tools:layout="@layout/fragment_package_status_driver" />
+        tools:layout="@layout/fragment_package_status_driver" >
+        <argument
+            android:name="driverPackStatusId"
+            app:argType="string" />
+        <argument
+            android:name="driverPackStatus"
+            app:argType="integer" />
+    </fragment>
 
     <!--    <fragment
     android:id="@+id/packageDetailFragment"

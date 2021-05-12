@@ -6,5 +6,5 @@ import androidx.lifecycle.ViewModel
 class ManagerMainActivityViewModel: ViewModel() {
     var selectDriverId = MutableLiveData<String>()
     var selectVendorId = MutableLiveData<String>()
-
+    var selectBuildingId = MutableLiveData<String>()
 }

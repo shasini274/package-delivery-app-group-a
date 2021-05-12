@@ -49,9 +49,9 @@ class NewPackVendorListFragment : Fragment() {
             rv_new_package_vendor_list_items.layoutManager = LinearLayoutManager(activity)
             rv_new_package_vendor_list_items.setHasFixedSize(true)
 
-            val adapterDrivers =
+            val adapterVendor =
                 VendorListInNewPackAdapter(requireActivity(), vendorList)
-            rv_new_package_vendor_list_items.adapter = adapterDrivers
+            rv_new_package_vendor_list_items.adapter = adapterVendor
         }
         else{
             rv_new_package_vendor_list_items.visibility = View.GONE

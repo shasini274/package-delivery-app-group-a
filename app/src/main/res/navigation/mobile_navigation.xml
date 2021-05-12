@@ -51,7 +51,11 @@
         tools:layout="@layout/fragment_vendor" >
         <action
             android:id="@+id/action_nav_vendor_to_addNewVendorFragment"
-            app:destination="@id/newVendorFragment" />
+            app:destination="@id/newVendorFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_nav_vendor_to_vendorProfileFragment"
+            app:destination="@id/vendorProfileFragment" />
     </fragment>
 
     <fragment
@@ -61,7 +65,11 @@
         tools:layout="@layout/fragment_building" >
         <action
             android:id="@+id/action_nav_building_to_addNewBuildingFragment"
-            app:destination="@id/newBuildingFragment" />
+            app:destination="@id/newBuildingFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_nav_building_to_buildingProfileFragment"
+            app:destination="@id/buildingProfileFragment" />
     </fragment>
 
     <fragment
@@ -71,7 +79,8 @@
         tools:layout="@layout/fragment_driver" >
         <action
             android:id="@+id/action_nav_driver_to_addNewDriverFragment"
-            app:destination="@id/newDriverFragment" />
+            app:destination="@id/newDriverFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -89,24 +98,39 @@
         <argument
             android:name="packageStatusId"
             app:argType="string" />
+        <argument
+            android:name="packageStatus"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/newBuildingFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment"
         android:label="@string/site_lbl"
         tools:layout="@layout/fragment_new_building">
+        <action
+            android:id="@+id/action_newBuildingFragment_to_nav_building"
+            app:destination="@id/nav_building"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/newVendorFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment"
         android:label="@string/vendor_lbl"
         tools:layout="@layout/fragment_new_vendor">
+        <action
+            android:id="@+id/action_newVendorFragment_to_nav_vendor"
+            app:destination="@id/nav_vendor"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/newDriverFragment"
         android:name="com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment"
         android:label="@string/driver_lbl"
         tools:layout="@layout/fragment_new_driver">
+        <action
+            android:id="@+id/action_newDriverFragment_to_nav_driver"
+            app:destination="@id/nav_driver"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/nav_account"
@@ -133,6 +157,11 @@
             app:destination="@id/newPackVendorListFragment"
             app:popUpTo="@id/newPackageFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_newPackageFragment_to_newPackBuildingListFragment"
+            app:destination="@id/newPackBuildingListFragment"
+            app:popUpTo="@id/newPackageFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/newPackDriverListFragment"
@@ -156,6 +185,66 @@
             app:popUpTo="@id/newPackVendorListFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/newPackBuildingListFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackBuildingListFragment"
+        android:label="Building List"
+        tools:layout="@layout/new_pack_building_list_fragment">
+        <action
+            android:id="@+id/action_newPackBuildingListFragment_to_newPackageFragment"
+            app:destination="@id/newPackageFragment"
+            app:popUpTo="@id/newPackBuildingListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/buildingProfileFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.building.BuildingProfileFragment"
+        android:label="Building"
+        tools:layout="@layout/fragment_profile_building">
+        <argument
+            android:name="buildingProName"
+            app:argType="string" />
+        <argument
+            android:name="buildingProAddr"
+            app:argType="string" />
+        <argument
+            android:name="buildingProEmail"
+            app:argType="string" />
+        <argument
+            android:name="buildingProPerson"
+            app:argType="string" />
+        <argument
+            android:name="buildingProNum"
+            app:argType="long" />
+        <argument
+            android:name="buildingProId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/vendorProfileFragment"
+        android:name="com.example.package_delivery_app_group_a.ui.manager.vendor.VendorProfileFragment"
+        android:label="fragment_profile_vendor"
+        tools:layout="@layout/fragment_profile_vendor" >
+        <argument
+            android:name="vendorProName"
+            app:argType="string" />
+        <argument
+            android:name="vendorProAddr"
+            app:argType="string" />
+        <argument
+            android:name="vendorProEmail"
+            app:argType="string" />
+        <argument
+            android:name="vendorProPerson"
+            app:argType="string" />
+        <argument
+            android:name="vendorProNum"
+            app:argType="long" />
+        <argument
+            android:name="vendorProId"
+            app:argType="string" />
+    </fragment>
+
     <!--    <fragment-->
 <!--        android:id="@+id/mainManagerFragment"-->
 <!--        android:name="com.example.package_delivery_app_group_a.ui.manager.MainManagerFragment"-->

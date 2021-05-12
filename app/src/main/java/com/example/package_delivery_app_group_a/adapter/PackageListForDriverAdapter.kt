@@ -9,13 +9,14 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.Package
+import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragmentDirections
 import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragmentDirections
 import kotlinx.android.synthetic.main.package_list_ontheway.view.*
 
-class PackageOnWayListAdapter (
+class PackageListForDriverAdapter (
     private val context: Context,
     private var list: ArrayList<Package>
-): RecyclerView.Adapter<PackageOnWayListAdapter.PackageOnWayViewHolder>(){
+): RecyclerView.Adapter<PackageListForDriverAdapter.PackageOnWayViewHolder>(){
 
     class PackageOnWayViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val vendorTextView: TextView = view.findViewById(R.id.home_ontheway_vendor_text)
@@ -35,7 +36,7 @@ class PackageOnWayListAdapter (
         holder.driverTextView.text = model.driverName
 
         holder.itemView.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment(
+            Navigation.findNavController(view).navigate(DriverHomeFragmentDirections.actionNavHomeDriverToPackageStatusDriverFragment(
                 model.pacakage_id,
                 3
                 //model.status

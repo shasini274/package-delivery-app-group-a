@@ -4,9 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.Vendor
+import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragmentDirections
+import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragmentDirections
 import kotlinx.android.synthetic.main.vendor_items_row.view.*
 
 open class VendorListAdapter(
@@ -33,7 +36,15 @@ open class VendorListAdapter(
 
             holder.itemView.vendor_item.text = model.vendorName
 
-            holder.itemView.vendor_item.setOnClickListener {
+            holder.itemView.vendor_item.setOnClickListener { view ->
+                Navigation.findNavController(view).navigate(
+                    VendorFragmentDirections.actionNavVendorToVendorProfileFragment(
+                    model.vendorName,
+                    model.address,
+                    model.email,
+                    model.contactPerson,
+                    model.contactNumber,
+                    model.vendor_id))
 
             }
         }

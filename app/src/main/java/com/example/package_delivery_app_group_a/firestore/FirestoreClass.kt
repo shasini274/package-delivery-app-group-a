@@ -9,11 +9,13 @@ import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
 import com.example.package_delivery_app_group_a.ui.driver.account.DriverAccountFragment
+import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
 import com.example.package_delivery_app_group_a.ui.manager.ManagerMainActivity
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackageFragment
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackVendorListFragment
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackDriverListFragment
+import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackBuildingListFragment
 import com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
@@ -381,6 +383,9 @@ class FirestoreClass {
                     is BuildingFragment -> {
                         fragment.successBuildingSitesListFromFireStore(buildingSitesList)
                     }
+                    is NewPackBuildingListFragment -> {
+                        fragment.successBuildingSitesListFromFireStore(buildingSitesList)
+                    }
                 }
             }
             .addOnFailureListener { e ->
@@ -552,6 +557,9 @@ class FirestoreClass {
                 when (fragment) {
                     is HomeFragment -> {
                         fragment.successPackageOnwayListFromFireStore(packagesList)
+                    }
+                    is DriverHomeFragment -> {
+                        fragment.successPackageDriverListFromFireStore(packagesList)
                     }
                 }
             }

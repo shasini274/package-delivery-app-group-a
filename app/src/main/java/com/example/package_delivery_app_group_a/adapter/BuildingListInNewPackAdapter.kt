@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
 import com.example.package_delivery_app_group_a.R
-import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragmentDirections
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackBuildingListFragmentDirections
 import com.example.package_delivery_app_group_a.utils.GlideLoader
 import kotlinx.android.synthetic.main.building_items_row.view.*
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.building_items_row.view.*
  */
 // TODO Step 6: Add the parameter as products fragment as we cannot call the delete function of products fragment on the delete button click.
 // START
-open class BuildingListAdapter(
+open class BuildingListInNewPackAdapter(
     private val context: Context,
     private var list: ArrayList<BuildingSite>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -62,14 +61,8 @@ open class BuildingListAdapter(
 
             // TODO Step 4: Assigning the click event to the delete button.
             // START
-            holder.itemView.building_item.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(BuildingFragmentDirections.actionNavBuildingToBuildingProfileFragment(
-                    model.siteName,
-                    model.address,
-                    model.email,
-                    model.contactPerson,
-                    model.contactNumber,
-                    model.building_id))
+            holder.itemView.building_item.setOnClickListener {view ->
+                Navigation.findNavController(view).navigate(NewPackBuildingListFragmentDirections.actionNewPackBuildingListFragmentToNewPackageFragment(3,model.building_id))
             }
             // END
         }

@@ -112,9 +112,9 @@
 
 
                 <TextView
-                    android:id="@+id/status_vender_postcode"
+                    android:id="@+id/status_vender_contact_person"
                     style="@style/StatusAddrStyle"
-                    android:hint="Post Code" />
+                    android:hint="Contact Person" />
 
                 <TextView
                     android:id="@+id/status_vender_phone"
@@ -152,9 +152,9 @@
 
 
                 <TextView
-                    android:id="@+id/status_building_postcode"
+                    android:id="@+id/status_building_contact_person"
                     style="@style/StatusAddrStyle"
-                    android:hint="Post Code" />
+                    android:hint="Contact Person" />
 
                 <TextView
                     android:id="@+id/status_building_phone"

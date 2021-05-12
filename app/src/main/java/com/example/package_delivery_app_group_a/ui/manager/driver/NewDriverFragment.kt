@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
@@ -42,15 +43,16 @@ class NewDriverFragment : BaseFragment(){
 //            val appContext = context?.applicationContext
 //            Toast.makeText(appContext, "Hello", Toast.LENGTH_LONG).show()
             addDriver(
-                    drivFname.text.toString(),
-                    drivLname.text.toString(),
-                    drivEmail.text.toString()
+                drivFname.text.toString(),
+                drivLname.text.toString(),
+                drivEmail.text.toString(),
+                view
             )
         }
     }
 
 
-    private fun addDriver(drivFname: String, drivLname: String, drivEmail: String){
+    private fun addDriver(drivFname: String, drivLname: String, drivEmail: String, view: View){
         println("HEllooooo1")
         println(drivFname)
 //        val dFname = drivFname.text.trim().toString()
@@ -65,6 +67,7 @@ class NewDriverFragment : BaseFragment(){
                 drivFname,
                 drivLname)
             FirestoreClass().addDriver(this, driver)
+            Navigation.findNavController(view).navigate(NewDriverFragmentDirections.actionNewDriverFragmentToNavDriver())
         }
     }
     private fun checkLayoutInputs(drivFname: String, drivLname: String, drivEmail: String): Boolean {

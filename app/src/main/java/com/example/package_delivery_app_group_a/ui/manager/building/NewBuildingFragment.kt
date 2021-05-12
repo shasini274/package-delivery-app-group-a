@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.example.package_delivery_app_group_a.models.Driver
+import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragmentDirections
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverViewModel
 import com.google.firebase.auth.FirebaseAuth
 
@@ -56,13 +58,12 @@ class NewBuildingFragment : BaseFragment() {
                 buildAddress.text.toString(),
                 buildEmail.text.toString(),
                 buildPerson.text.toString(),
-                buildNumber.text.toString()
-
-
+                buildNumber.text.toString(),
+                view
             )
         }
     }
-    private fun addBuildingSite(buildName: String, buildAddress: String, buildEmail: String, buildPerson:String, buildNumber:String ){
+    private fun addBuildingSite(buildName: String, buildAddress: String, buildEmail: String, buildPerson:String, buildNumber:String, view: View){
         println("HEllooooo1")
         println(buildName)
 //        val dFname = drivFname.text.trim().toString()
@@ -78,6 +79,7 @@ class NewBuildingFragment : BaseFragment() {
                 buildAddress,
                 buildEmail, buildPerson, buildNum)
             FirestoreClass().addBuilding(this, building)
+            Navigation.findNavController(view).navigate(NewBuildingFragmentDirections.actionNewBuildingFragmentToNavBuilding())
         }
     }
     private fun checkLayoutInputs(buildName: String, buildAddress: String, buildEmail: String, buildPerson:String, buildNumber:String ): Boolean {

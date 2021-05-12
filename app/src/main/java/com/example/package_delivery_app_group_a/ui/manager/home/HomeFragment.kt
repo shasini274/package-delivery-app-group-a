@@ -43,61 +43,6 @@ class HomeFragment : Fragment() {
         })
          */
 
-        // get package data and show in listView, need to get data from database later using
-//        val vendorArray = resources.getStringArray(R.array.package_ontheway_vendor_array)
-//        val buildingArray = resources.getStringArray(R.array.package_ontheway_building_array)
-//        val driverArray = resources.getStringArray(R.array.package_ontheway_driver_array)
-//        val vendorArray1 = resources.getStringArray(R.array.package_pending_vendor_array)
-//        val buildingArray1 = resources.getStringArray(R.array.package_pending_building_array)
-//        val driverArray1 = resources.getStringArray(R.array.package_pending_driver_array)
-//        val listview1 = root.findViewById<ListView>(R.id.package_listView)
-//        val packageListOntheway = ArrayList<HashMap<String, String>>()
-//        val packageListPending = ArrayList<HashMap<String, String>>()
-//
-//        //val arrayAdapter1 = this.context?.let { ArrayAdapter<String>(it, android.R.layout.simple_expandable_list_item_1, vendorArray) } // single string
-//        for (i in vendorArray.indices) {
-//            val map = HashMap<String, String>()
-//
-//            // data entry in HashMap
-//            map["vendor"] = vendorArray[i]
-//            map["building"] = buildingArray[i]
-//            map["driver"] = driverArray[i]
-//
-//            // add the HashMap to ArrayList
-//            packageListOntheway.add(map)
-//        }
-//        for (i in vendorArray1.indices) {
-//            val map1 = HashMap<String, String>()
-//
-//            // data entry in HashMap
-//            map1["vendor1"] = vendorArray1[i]
-//            map1["building1"] = buildingArray1[i]
-//            map1["driver1"] = driverArray1[i]
-//
-//            // add the HashMap to ArrayList
-//            packageListPending.add(map1)
-//        }
-//
-//        //fourth parameter of SimpleAdapter
-//        val from = arrayOf("vendor", "building", "driver")
-//        //fifth parameter of SimpleAdapter
-//        val to = intArrayOf(R.id.home_ontheway_vendor_text, R.id.home_ontheway_building_text, R.id.home_ontheway_driver_text)
-//        //fourth parameter of SimpleAdapter
-//        val from1 = arrayOf("vendor1", "building1", "driver1")
-//        //fifth parameter of SimpleAdapter
-//        val to1 = intArrayOf(R.id.home_pending_vendor_text, R.id.home_pending_building_text, R.id.home_pending_driver_text)
-//
-//        // default: On the way
-//        val simpleAdapter = this.context?.let { SimpleAdapter (it, packageListOntheway, R.layout.package_list_ontheway, from, to) }
-//
-//        listview1.adapter = simpleAdapter
-//        listview1.setOnItemClickListener {
-//                adapterView, view, position, id ->
-//            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
-//        }
-
-
-
         // Floating Action Button
         val itemType: Int = 100
         val itemId: String = ""
@@ -115,30 +60,12 @@ class HomeFragment : Fragment() {
             onthewayBtn.setTextColor(Color.parseColor("#00796B"))  //teal_dark
             pendingBtn.setTextColor(Color.BLACK)
             getPackageOnwayListFromFirestore()
-
-
-
-//            val simpleAdapter = this.context?.let { SimpleAdapter (it, packageListOntheway, R.layout.package_list_ontheway, from, to) }
-//
-//            listview1.adapter = simpleAdapter
-//            listview1.setOnItemClickListener {
-//                    adapterView, view, position, id ->
-//                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
-//            }
-
         }
+
         pendingBtn?.setOnClickListener {
             pendingBtn.setTextColor(Color.parseColor("#00796B"))   //teal_dark
             onthewayBtn.setTextColor(Color.BLACK)
             getPackagePendingListFromFirestore()
-
-//            val simpleAdapter1 = this.context?.let { SimpleAdapter (it, packageListPending, R.layout.package_list_pending, from1, to1) }
-//
-//            listview1.adapter = simpleAdapter1
-//            listview1.setOnItemClickListener {
-//                    adapterView, view, position, id ->
-//                Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToPackageStatusFragment())
-//            }
 
         }
 

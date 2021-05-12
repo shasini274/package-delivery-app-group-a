@@ -10,7 +10,12 @@ import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.package_delivery_app_group_a.R
+import com.example.package_delivery_app_group_a.adapter.PackageListForDriverAdapter
+import com.example.package_delivery_app_group_a.adapter.PackageOnWayListAdapter
+import com.example.package_delivery_app_group_a.firestore.FirestoreClass
+import com.example.package_delivery_app_group_a.models.Package
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragmentDirections
 import kotlinx.android.synthetic.main.fragment_home_driver.*
 
@@ -29,34 +34,7 @@ class DriverHomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home_driver, container, false)
 
-        val vendorArrayDriver = resources.getStringArray(R.array.driver_package_vendor_array)
-        val buildingArrayDriver = resources.getStringArray(R.array.driver_package_building_array)
-        val driverArrayDriver = resources.getStringArray(R.array.driver_package_driver_array)
-        val packageListDriver = ArrayList<HashMap<String, String>>()
-        val packageList: ListView = root.findViewById(R.id.package_listView_driver)
-
-        for (i in vendorArrayDriver.indices) {
-            val map = HashMap<String, String>()
-            // data entry in HashMap
-            map["vendor"] = vendorArrayDriver[i]
-            map["building"] = buildingArrayDriver[i]
-            map["driver"] = driverArrayDriver[i]
-            // add the HashMap to ArrayList
-            packageListDriver.add(map)
-        }
-        //fourth parameter of SimpleAdapter
-        val from = arrayOf("vendor", "building", "driver")
-        //fifth parameter of SimpleAdapter
-        val to = intArrayOf(R.id.home_ontheway_vendor_text, R.id.home_ontheway_building_text, R.id.home_ontheway_driver_text)
-        val simpleAdapter = this.context?.let { SimpleAdapter (it, packageListDriver, R.layout.package_list_ontheway, from, to) }
-
-        packageList.adapter = simpleAdapter
-
-        packageList.setOnItemClickListener {
-                adapterView, view, position, id ->
-            Navigation.findNavController(view).navigate(DriverHomeFragmentDirections.actionNavHomeDriverToPackageStatusDriverFragment())
-        }
-
+        getPackageDriverListFromFirestore()
 
         return root
     }
@@ -65,6 +43,31 @@ class DriverHomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DriverHomeViewModel::class.java)
         // TODO: Use the ViewModel
+    }
+    fun successPackageDriverListFromFireStore(packageList: ArrayList<Package>){
+//        hideShowProgBar()
+
+        if(packageList.size>0) {
+            package_list_driver.visibility = View.VISIBLE
+//            text_no_driver_found.visibility = View.GONE
+
+            package_list_driver.layoutManager = LinearLayoutManager(activity)
+            package_list_driver.setHasFixedSize(true)
+
+            val adapterPackages=
+                PackageListForDriverAdapter(requireActivity(), packageList)
+            package_list_driver.adapter = adapterPackages
+
+        }
+        else{
+            package_list_driver.visibility = View.GONE
+//            text_no_driver_found.visibility = View.VISIBLE
+        }
+    }
+
+    private fun getPackageDriverListFromFirestore(){
+        //        showProgBar()
+        FirestoreClass().getPackageOnWayList(this)
     }
 
 }

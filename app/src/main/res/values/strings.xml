@@ -149,7 +149,6 @@
     <string name="logout_lbl">Logout</string>
 
 
-
     <!-- Package Status -->
     <string name="status_pending">Accept</string>
     <string name="stasus_dispatched">Dispatched</string>

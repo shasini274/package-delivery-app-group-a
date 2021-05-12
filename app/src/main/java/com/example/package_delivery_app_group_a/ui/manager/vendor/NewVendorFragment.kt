@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
@@ -21,6 +22,8 @@ import com.example.package_delivery_app_group_a.models.Driver
 import com.example.package_delivery_app_group_a.models.Item
 import com.example.package_delivery_app_group_a.models.Vendor
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingViewModel
+import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragmentDirections
+import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_building.*
 import kotlinx.android.synthetic.main.fragment_new_vendor.*
@@ -74,13 +77,14 @@ class NewVendorFragment : BaseFragment() {
                 vendAddress.text.toString(),
                 vendEmail.text.toString(),
                 vendPerson.text.toString(),
-                vendNumber.text.toString())
+                vendNumber.text.toString(),
+                view
+            )
 //                vendItem.toString()
-
         }
 
     }
-    private fun addVendorSite(vendName: String, vendAddress: String, vendEmail: String, vendPerson:String, vendNumber:String){
+    private fun addVendorSite(vendName: String, vendAddress: String, vendEmail: String, vendPerson:String, vendNumber:String, view: View){
 //        println("HEllooooo1")
 //        println(buildName)
 //        val dFname = drivFname.text.trim().toString()
@@ -96,6 +100,7 @@ class NewVendorFragment : BaseFragment() {
                 vendAddress,
                 vendEmail, vendPerson, vendNum)
             FirestoreClass().addVendor(this, vendor)
+            Navigation.findNavController(view).navigate(NewVendorFragmentDirections.actionNewVendorFragmentToNavVendor())
         }
     }
     private fun checkLayoutInputs(vendName: String, vendAddress: String, vendEmail: String, vendPerson:String, vendNumber:String): Boolean {
