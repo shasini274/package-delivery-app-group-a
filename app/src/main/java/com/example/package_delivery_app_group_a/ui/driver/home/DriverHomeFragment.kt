@@ -11,15 +11,19 @@ import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.package_delivery_app_group_a.BaseFragment
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.adapter.PackageListForDriverAdapter
 import com.example.package_delivery_app_group_a.adapter.PackageOnWayListAdapter
 import com.example.package_delivery_app_group_a.firestore.FirestoreClass
 import com.example.package_delivery_app_group_a.models.Package
+import com.example.package_delivery_app_group_a.models.User
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragmentDirections
+import com.example.package_delivery_app_group_a.utils.GlideLoaderThree
+import kotlinx.android.synthetic.main.fragment_account_driver.*
 import kotlinx.android.synthetic.main.fragment_home_driver.*
 
-class DriverHomeFragment : Fragment() {
+class DriverHomeFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = DriverHomeFragment()
@@ -33,8 +37,8 @@ class DriverHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home_driver, container, false)
+        getUserDetails()
 
-        getPackageDriverListFromFirestore()
 
         return root
     }
@@ -64,10 +68,24 @@ class DriverHomeFragment : Fragment() {
 //            text_no_driver_found.visibility = View.VISIBLE
         }
     }
+//    override fun onResume(){
+//        super.onResume()
+//        getUserDetails()
+//    }
+    private fun getUserDetails(){
+        showProgBar()
+        FirestoreClass().getUserDetailsinFragments(this)
+    }
+    fun userDetailSuccess(user: User){
+        hideShowProgBar()
+        print(user.email)
+        getPackageDriverListFromFirestore(user.email)
 
-    private fun getPackageDriverListFromFirestore(){
+    }
+    private fun getPackageDriverListFromFirestore(driEmail: String){
         //        showProgBar()
-        FirestoreClass().getPackageOnWayList(this)
+
+        FirestoreClass().getDriverAllocatedPackageList(this, driEmail)
     }
 
 }

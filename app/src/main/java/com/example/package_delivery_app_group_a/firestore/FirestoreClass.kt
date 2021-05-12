@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.package_delivery_app_group_a.models.*
 import com.example.package_delivery_app_group_a.ui.driver.DriverMainActivity
 import com.example.package_delivery_app_group_a.ui.driver.DriverProfileActivity
+import com.example.package_delivery_app_group_a.ui.driver.PackageStatusDriverFragment
 import com.example.package_delivery_app_group_a.ui.driver.account.DriverAccountFragment
 import com.example.package_delivery_app_group_a.ui.driver.home.DriverHomeFragment
 import com.example.package_delivery_app_group_a.ui.login.LoginActivity
@@ -165,6 +166,10 @@ class FirestoreClass {
                         // Call a function of base activity for transferring the result to it.
                         fragment.userDetailSuccess(user)
                     }
+                    is DriverHomeFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        fragment.userDetailSuccess(user)
+                    }
                 }
             }
             .addOnFailureListener { e ->
@@ -174,6 +179,9 @@ class FirestoreClass {
                         fragment.hideShowProgBar()
                     }
                     is DriverAccountFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                    is DriverHomeFragment -> {
                         fragment.hideShowProgBar()
                     }
                 }
@@ -339,26 +347,55 @@ class FirestoreClass {
 //            }
 //
 //    }
-//    fun updateStatusPackage(fragment: NewPackageFragment, packageId: String, packageHashMap: HashMap<String, Any>){
-//        mFireStore.collection(Constants.PACKAGES)
-//            // Document ID for users fields. Here the document it is the User ID.
-//            .document(packageId)
-//            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
-//            .update(packageHashMap)
-//            .addOnSuccessListener {
-//                when(fragment){
-//                    is DriverHomeFragment ->{
-//                        fragment.packageUpdateSuccess()
-//                    }
-//                }
-//
-//            }
-//            .addOnFailureListener { e ->
-////                activity.hideShowProgBar()
-//                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
-//            }
-//
-//    }
+    fun updateStatusPackage(fragment: Fragment, packageId: String, packageHashMap: HashMap<String, Any>){
+        mFireStore.collection(Constants.PACKAGES)
+            // Document ID for users fields. Here the document it is the User ID.
+            .document(packageId)
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
+            .update(packageHashMap)
+            .addOnSuccessListener {
+                when(fragment){
+                    is PackageStatusDriverFragment ->{
+                        fragment.packageUpdateSuccess()
+                    }
+                }
+
+            }
+            .addOnFailureListener { e ->
+//                activity.hideShowProgBar()
+                Log.e(fragment.javaClass.simpleName,"Error while registering the package.",e)
+            }
+
+    }
+    fun getCheckStatusPackage(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.PACKAGES)
+            .document()
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                val packageSt = document.toObject(Package::class.java)
+
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        if (packageSt != null) {
+                            fragment.packageInSuccess(packageSt)
+                        }
+                    }
+
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is BuildingFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                Log.e("Get Building List", "Error while getting product list.", e)
+            }
+    }
     fun getBuildingList(fragment: Fragment) {
         // The collection name for PRODUCTS
         mFireStore.collection(Constants.BUILDINGSITES)
@@ -504,6 +541,93 @@ class FirestoreClass {
             .addOnFailureListener { e ->
                 when (fragment) {
                     is PackageStatusFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+
+
+    }
+    fun getPackageDetailDriver(fragment: Fragment, vendorId: String, buildingId: String, packageId: String) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.BUILDINGSITES)
+            // The document id to get the Fields of user.
+            .document(buildingId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val building = document.toObject(BuildingSite::class.java)
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (building != null) {
+                            fragment.buildingInSuccess(building)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+
+        mFireStore.collection(Constants.VENDORS)
+            // The document id to get the Fields of user.
+            .document(vendorId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val vendor = document.toObject(Vendor::class.java)
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (vendor != null) {
+                            fragment.vendorInSuccess(vendor)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        fragment.hideShowProgBar()
+                    }
+                }
+                // Hide the progress dialog if there is any error. And print the error in log.
+
+            }
+        mFireStore.collection(Constants.PACKAGES)
+            // The document id to get the Fields of user.
+            .document(packageId)
+            .get()
+            .addOnSuccessListener { document ->
+                // Here we have received the document snapshot which is converted into the User Data model object.
+                val packaged = document.toObject(Package::class.java)
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
+                        // Call a function of base activity for transferring the result to it.
+                        if (packaged != null) {
+                            fragment.packageInSuccess(packaged)
+                        }
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (fragment) {
+                    is PackageStatusDriverFragment -> {
                         fragment.hideShowProgBar()
                     }
                 }
@@ -727,6 +851,51 @@ class FirestoreClass {
                 // Hide the progress dialog if there is any error based on the base class instance.
                 when (fragment) {
                     is HistoryFragment -> {
+//                        fragment.hideShowProgBar()
+                        Log.e("Get DriverList", "Error while getting product list.", e)
+                    }
+                }
+                Log.e("Get DriverList", "Error while getting product list.", e)
+            }
+    }
+    fun getDriverAllocatedPackageList(fragment: Fragment, driverEmail: String) {
+
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.PACKAGES)
+            .whereEqualTo(Constants.DRIVER_ID, driverEmail)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+//                Log.e("Vendors List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                Log.e("Products List", document.documents.toString())
+                val packagesList: ArrayList<Package> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+                    val packages = i.toObject(Package::class.java)
+
+                    packages!!.pacakage_id=i.id
+//                    buildingSites!!.email = i.id
+
+                    packagesList.add(packages)
+                }
+
+                when (fragment) {
+                    is HomeFragment -> {
+                        fragment.successPackageOnwayListFromFireStore(packagesList)
+                    }
+                    is DriverHomeFragment -> {
+                        fragment.successPackageDriverListFromFireStore(packagesList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is HomeFragment -> {
 //                        fragment.hideShowProgBar()
                         Log.e("Get DriverList", "Error while getting product list.", e)
                     }

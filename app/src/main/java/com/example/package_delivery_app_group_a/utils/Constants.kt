@@ -24,6 +24,7 @@ object Constants {
     const val PICK_IMAGE_REQUEST_CODE = 2
 
     const val ID: String = "id"
+    const val DRIVER_ID= "driver_id"
     const val FNAME: String = "firstName"
     const val LNAME: String = "lastName"
     const val EMAIL: String = "email"
@@ -34,7 +35,8 @@ object Constants {
 
     const val DRIVER = "driver"
     const val MANAGER = "manager"
-    var STATUS = "status"
+    const val STATUS = "status"
+
 
 
 

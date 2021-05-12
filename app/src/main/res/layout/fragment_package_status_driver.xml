@@ -1,191 +1,368 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/item_dashboard_margin"
+    android:background="@drawable/item_dashboard_background"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.driver.PackageStatusDriverFragment">
+    android:padding="@dimen/item_dashboard_padding">
+    <LinearLayout
+        android:id="@+id/package_status_detail_driver"
+        android:layout_width="401dp"
+        android:layout_height="70dp"
+        android:background="@color/dashboard_item_details_bg"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
+        android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingBottom="@dimen/dashboard_item_paddingTopBottom">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/package_status_image_driver"
-                    android:layout_width="360dp"
-                    android:layout_height="180dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_archive_24" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/package_status_material_driver"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="40dp"
-                        android:hint="Material"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/package_status_size_driver"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
-                        android:hint="Size"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/package_status_weight_driver"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
-                        android:hint="Weight"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/package_status_accepted"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="Accepted"
-                android:textSize="24sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="25dp"
-                android:background="@color/grey_very_light"/>
-            <CheckBox
-                android:id="@+id/check_status_pending_driver"
-                style="@style/StatusCheckboxStyle"
-                android:text="@string/status_pending" />
-            <TextView
-                android:id="@+id/package_status_dispatched"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="Dispatched"
-                android:textSize="24sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="25dp"
-                android:background="@color/grey_very_light"/>
-
-            <CheckBox
-                android:id="@+id/check_status_dispatched_driver"
-                style="@style/StatusCheckboxStyle"
-                android:text="@string/stasus_dispatched" />
-
-            <LinearLayout
+                android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:text="@string/driver_new_task"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.512" />
 
-                <TextView
-                    android:id="@+id/status_vender_name_driver"
-                    style="@style/StatusAddrStyle"
-                    android:layout_marginTop="4dp"
-                    android:hint="Vendor Name" />
+            <Button
+                android:id="@+id/job_accept_button"
+                android:layout_width="72dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/driver_lbl_btn"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#009688"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.521" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/status_vender_address_driver"
-                    style="@style/StatusAddrStyle"
-                    android:hint="Vendor Address" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/Vendor_details"
+        android:layout_width="401dp"
+        android:layout_height="243dp"
+        android:layout_below="@+id/package_status_detail_driver"
+        android:layout_marginTop="20dp"
+        android:background="@color/dashboard_item_details_bg"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
+        android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingBottom="@dimen/dashboard_item_paddingTopBottom">
 
-                <TextView
-                    android:id="@+id/status_vender_postcode_driver"
-                    style="@style/StatusAddrStyle"
-                    android:hint="Post Code" />
-
-                <TextView
-                    android:id="@+id/status_vender_phone_driver"
-                    style="@style/StatusAddrStyle"
-                    android:layout_marginBottom="0dp"
-                    android:hint="Phone Number" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/package_status_delivered"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="Delivered"
-                android:textSize="24sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="25dp"
-                android:background="@color/grey_very_light"/>
-            <CheckBox
-                android:id="@+id/check_status_delivered_driver"
-                style="@style/StatusCheckboxStyle"
-                android:text="@string/status_delivered" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/status_building_name_driver"
-                    style="@style/StatusAddrStyle"
-                    android:layout_marginTop="4dp"
-                    android:hint="Building Name" />
-
-                <TextView
-                    android:id="@+id/status_building_address_driver"
-                    style="@style/StatusAddrStyle"
-                    android:hint="Building Address" />
-
-
-                <TextView
-                    android:id="@+id/status_building_postcode_driver"
-                    style="@style/StatusAddrStyle"
-                    android:hint="Post Code" />
-
-                <TextView
-                    android:id="@+id/status_building_phone_driver"
-                    style="@style/StatusAddrStyle"
-                    android:layout_marginBottom="0dp"
-                    android:hint="Phone Number" />
-            </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/package_detail_number_driver"
+                android:id="@+id/pickup_loc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/vendor_loc"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103" />
+
+            <Button
+                android:id="@+id/job_picked_up"
+                android:layout_width="72dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/driver_lbl_btn"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#009688"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.081" />
+
+            <TextView
+                android:id="@+id/dVeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/vendor_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_loc" />
+
+            <TextView
+                android:id="@+id/dVendorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="28dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dVeName"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_loc" />
+
+            <TextView
+                android:id="@+id/dVeAdr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:textSize="25sp"
-                tools:text="UID" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                android:text="@string/vendor_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dVeName" />
+
+            <TextView
+                android:id="@+id/dVendorAdr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="12dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dVeAdr"
+                app:layout_constraintTop_toBottomOf="@+id/dVendorName" />
+
+            <TextView
+                android:id="@+id/dVeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/vendor_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.051"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dVendorAdr" />
+
+            <TextView
+                android:id="@+id/dVendorNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dVeNum"
+                app:layout_constraintTop_toBottomOf="@+id/dVendorAdr" />
+
+            <TextView
+                android:id="@+id/dVeCo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/vendor_person"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dVeNum" />
+
+            <TextView
+                android:id="@+id/dVendorCo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dVeCo"
+                app:layout_constraintTop_toBottomOf="@+id/dVendorNum" />
+
+            <TextView
+                android:id="@+id/dVeEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/vendor_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dVeCo" />
+
+            <TextView
+                android:id="@+id/dVendorEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dVeEmail"
+                app:layout_constraintTop_toBottomOf="@+id/dVendorCo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Building_details"
+        android:layout_width="401dp"
+        android:layout_height="256dp"
+        android:layout_below="@+id/package_status_detail_driver"
+        android:layout_marginTop="280dp"
+        android:background="@color/dashboard_item_details_bg"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
+        android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
+        android:paddingBottom="@dimen/dashboard_item_paddingTopBottom">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/delivery_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/build_loc"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103" />
+
+            <Button
+                android:id="@+id/job_drop_off"
+                android:layout_width="72dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/driver_lbl_btn"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#009688"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.081" />
+
+            <TextView
+                android:id="@+id/dbName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/site_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_loc" />
+
+            <TextView
+                android:id="@+id/dBuildingName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dbName"
+                app:layout_constraintTop_toBottomOf="@+id/job_drop_off" />
+
+            <TextView
+                android:id="@+id/dbAdr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/site_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dbName" />
+
+            <TextView
+                android:id="@+id/dBuildingAdr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="12dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dbAdr"
+                app:layout_constraintTop_toBottomOf="@+id/dBuildingName" />
+
+            <TextView
+                android:id="@+id/dbNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/site_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.051"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dBuildingAdr" />
+
+            <TextView
+                android:id="@+id/dBuildingNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dbNum"
+                app:layout_constraintTop_toBottomOf="@+id/dBuildingAdr" />
+
+            <TextView
+                android:id="@+id/dbCo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/site_person"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dbNum" />
+
+            <TextView
+                android:id="@+id/dBuildingCo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dbCo"
+                app:layout_constraintTop_toBottomOf="@+id/dBuildingNum" />
+
+            <TextView
+                android:id="@+id/dbEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/site_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dbCo" />
+
+            <TextView
+                android:id="@+id/dBuildingEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dbEmail"
+                app:layout_constraintTop_toBottomOf="@+id/dBuildingCo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

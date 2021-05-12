@@ -37,9 +37,9 @@ class PackageListForDriverAdapter (
 
         holder.itemView.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(DriverHomeFragmentDirections.actionNavHomeDriverToPackageStatusDriverFragment(
-                model.pacakage_id,
-                3
-                //model.status
+                model.vendor_id,
+                model.building_id,
+                model.pacakage_id
             ))
         }
 

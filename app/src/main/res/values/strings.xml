@@ -155,6 +155,10 @@
     <string name="driver_name">Driver Name   </string>
     <string name="driver_pack_email">Driver Email</string>
     <string name="driver_contact_number">Contact Number</string>
+    <string name="driver_new_task">New Task</string>
+    <string name="driver_lbl_btn">OK</string>
+    <string name="vendor_loc">Pick Up Location</string>
+    <string name="build_loc">Drop Off Location</string>
 
     <string name="packageID">Order Id</string>
     <string name="status_pending">Accept</string>

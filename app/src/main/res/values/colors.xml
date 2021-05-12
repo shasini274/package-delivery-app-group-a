@@ -26,7 +26,8 @@
 <!--    <color name="teal_700">#FF018786</color>-->
 <!--    <color name="black">#FF000000</color>-->
 <!--    <color name="white">#FFFFFFFF</color>-->
-
+#04d9ff
+    <color name="statuscolor">#04d9ff</color>
     <color name="colorSnackBarError">#F72400</color>
     <color name="colorSnackBarSuccess">#8BC34A</color>
 
