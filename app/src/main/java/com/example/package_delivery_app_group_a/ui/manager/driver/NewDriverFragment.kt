@@ -104,7 +104,7 @@ class NewDriverFragment : BaseFragment(){
          * Here the new user registered is automatically signed-in so we just sign-out the user from firebase
          * and send him to Intro Screen for Sign-In
          */
-        FirebaseAuth.getInstance().signOut()
+//        FirebaseAuth.getInstance().signOut()
 //        finish()
     }
 

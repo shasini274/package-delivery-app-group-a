@@ -164,6 +164,7 @@ class DriverProfileActivity : BaseActivity(), View.OnClickListener {
         }
     }
     private fun updateDriverProfileDetails(){
+        val driverEmail = pro_email.text.trim().toString()
         val number = pro_phone.text.trim().toString()
         val userHashMap = HashMap<String, Any>()
         //number
@@ -176,7 +177,7 @@ class DriverProfileActivity : BaseActivity(), View.OnClickListener {
         }
         userHashMap[Constants.COMPLETED_PROFILE] = 1
 //        showProgBar()
-        FirestoreClass().updateDriverProfileData(this, userHashMap)
+        FirestoreClass().updateDriverProfileData(this, userHashMap, driverEmail)
 //                        showErrorSnackBar("Your details are valid. You can update them.",false)
 
     }

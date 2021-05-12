@@ -175,14 +175,19 @@ class FirestoreClass {
                 }
             }
     }
-    fun updateDriverProfileData(activity: Activity, userHashMap: HashMap<String, Any>){
+    fun updateDriverProfileData(activity: Activity, userHashMap: HashMap<String, Any>, driverEmail: String){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserID())
             .update(userHashMap)
             .addOnSuccessListener {
-                when (activity) {
-                    is DriverProfileActivity -> {
-                        activity.driverProfileUpdateSuccess()
+                mFireStore.collection(Constants.DRIVERS)
+                    .document(driverEmail)
+                    .update(userHashMap)
+                    .addOnSuccessListener {
+                    when (activity) {
+                        is DriverProfileActivity -> {
+                            activity.driverProfileUpdateSuccess()
+                        }
                     }
                 }
 //                activity.userRegistrationSuccess()
@@ -200,6 +205,30 @@ class FirestoreClass {
                     e
                 )
             }
+//        mFireStore.collection(Constants.DRIVERS)
+//            .document(userHashMap[Constants.EMAIL] as String)
+//            .update(userHashMap)
+//            .addOnSuccessListener {
+//                when (activity) {
+//                    is DriverProfileActivity -> {
+//                        activity.driverProfileUpdateSuccess()
+//                    }
+//                }
+////                activity.userRegistrationSuccess()
+//            }
+//            .addOnFailureListener { e ->
+//                when (activity) {
+//                    is DriverProfileActivity -> {
+//                        activity.hideShowProgBar()
+//                    }
+//
+//                }
+//                Log.e(
+//                    activity.javaClass.simpleName,
+//                    "Error while updating the user details.",
+//                    e
+//                )
+//            }
     }
     fun uploadImageCloudStorage(activity: Activity, imageUri: Uri?) {
 

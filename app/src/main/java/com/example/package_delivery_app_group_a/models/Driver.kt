@@ -7,4 +7,6 @@ import kotlinx.android.parcel.Parcelize
 class Driver (
     var id: String = "",
     val firstName: String="",
-    val lastName: String=""): Parcelable
+    val lastName: String="",
+    val image: String = "",
+    val mobile: Long = 0): Parcelable

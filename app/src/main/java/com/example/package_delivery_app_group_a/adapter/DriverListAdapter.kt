@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.package_delivery_app_group_a.R
 import com.example.package_delivery_app_group_a.models.BuildingSite
 import com.example.package_delivery_app_group_a.models.Driver
+import com.example.package_delivery_app_group_a.utils.GlideLoader
 import kotlinx.android.synthetic.main.building_items_row.view.*
 import kotlinx.android.synthetic.main.building_items_row.view.building_item
 import kotlinx.android.synthetic.main.driver_items_row.view.*
@@ -33,7 +34,7 @@ open class DriverListAdapter(
         val model = list[position]
 
         if (holder is MyViewHolder) {
-
+            GlideLoader(context).loadUserPicture(model.image, holder.itemView.driver_image)
             holder.itemView.driver_item.text = model.firstName + model.lastName
 
             // TODO Step 4: Assigning the click event to the delete button.
