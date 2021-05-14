@@ -14,26 +14,15 @@ import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackBui
 import com.example.package_delivery_app_group_a.utils.GlideLoader
 import kotlinx.android.synthetic.main.building_items_row.view.*
 
-//import kotlinx.android.synthetic.main.item_list_layout.view.*
-
-/**
- * A adapter class for products list items.
- */
-// TODO Step 6: Add the parameter as products fragment as we cannot call the delete function of products fragment on the delete button click.
-// START
 open class BuildingListAdapter(
     private val context: Context,
     private var list: ArrayList<BuildingSite>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-// END
 
-    /**
-     * Inflates the item views which is designed in xml layout file
-     *
-     * create a new
-     * {@link ViewHolder} and initializes some private fields to be used by RecyclerView.
-     */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RecyclerView.ViewHolder {
         return MyViewHolder(
             LayoutInflater.from(context).inflate(
                 R.layout.building_items_row,
@@ -43,16 +32,6 @@ open class BuildingListAdapter(
         )
     }
 
-    /**
-     * Binds each item in the ArrayList to a view
-     *
-     * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
-     * an item.
-     *
-     * This new ViewHolder should be constructed with a new View that can represent the items
-     * of the given type. You can either create a new View manually or inflate it from an XML
-     * layout file.
-     */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = list[position]
 
@@ -60,10 +39,9 @@ open class BuildingListAdapter(
 
             holder.itemView.building_item.text = model.siteName
 
-            // TODO Step 4: Assigning the click event to the delete button.
-            // START
             holder.itemView.building_item.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(BuildingFragmentDirections.actionNavBuildingToBuildingProfileFragment(
+                Navigation.findNavController(view).navigate(
+                    BuildingFragmentDirections.actionNavBuildingToBuildingProfileFragment(
                     model.siteName,
                     model.address,
                     model.email,
@@ -71,7 +49,6 @@ open class BuildingListAdapter(
                     model.contactNumber,
                     model.building_id))
             }
-            // END
         }
     }
 

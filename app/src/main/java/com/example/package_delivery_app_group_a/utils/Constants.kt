@@ -33,6 +33,13 @@ object Constants {
     const val IMAGE: String = "image"
     const val COMPLETED_PROFILE: String= "profileCompleted"
 
+    const val SITE_NAME: String = "siteName"
+    const val ADDRESS: String = "address"
+    const val CONTACT_PERSON: String = "contactPerson"
+    const val CONTACT_NUMBER: String = "contactNumber"
+    const val VENDOR_NAME: String = "vendorName"
+
+
     const val DRIVER = "driver"
     const val MANAGER = "manager"
     const val STATUS = "status"

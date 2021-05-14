@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/item_dashboard_margin"
     android:background="@drawable/item_dashboard_background"
     android:gravity="center"
@@ -13,123 +13,123 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical">
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/new_package_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dashboard_item_details_bg"
-            android:orientation="vertical"
-            android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
-            android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
-            android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
-            android:paddingBottom="@dimen/dashboard_item_paddingStartEnd">
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <LinearLayout
+                android:id="@+id/new_package_details"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:background="@color/dashboard_item_details_bg"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
+                android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
+                android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
+                android:paddingBottom="@dimen/dashboard_item_paddingStartEnd">
 
-                <TextView
-                    android:id="@+id/new_package_vendor"
-                    style="@style/StatusAddrStyle"
-                    android:text="Vendor"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/new_package_vendor"
+                        style="@style/StatusAddrStyle"
+                        android:text="Vendor"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/new_package_vendor_select"
+                        style="@style/StatusAddrStyle"
+                        android:layout_marginStart="50dp"
+                        android:hint="Select Vendor"
+                        android:text=""
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toEndOf="@+id/new_package_vendor"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/new_package_driver"
+                        style="@style/StatusAddrStyle"
+                        android:text="Driver"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_package_vendor" />
+
+                    <TextView
+                        android:id="@+id/new_package_driver_select"
+                        style="@style/StatusAddrStyle"
+                        android:hint="Select Driver"
+                        android:text=""
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toEndOf="@+id/new_package_driver"
+                        app:layout_constraintStart_toStartOf="@+id/new_package_vendor_select"
+                        app:layout_constraintTop_toBottomOf="@+id/new_package_vendor_select" />
+
+                    <TextView
+                        android:id="@+id/new_package_building"
+                        style="@style/StatusAddrStyle"
+                        android:text="Building"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_package_driver" />
+
+                    <TextView
+                        android:id="@+id/new_package_building_select"
+                        style="@style/StatusAddrStyle"
+                        android:hint="Select Building"
+                        android:text=""
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toEndOf="@+id/new_package_building"
+                        app:layout_constraintStart_toStartOf="@+id/new_package_driver_select"
+                        app:layout_constraintTop_toBottomOf="@+id/new_package_driver_select" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/new_package_item_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/dashboard_item_details_bg"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
+                android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
+                android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
+                android:paddingBottom="@dimen/dashboard_item_paddingStartEnd">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_new_package_item_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/new_package_vendor_select"
-                    style="@style/StatusAddrStyle"
-                    android:layout_marginStart="50dp"
-                    android:text=""
-                    android:hint="Select Vendor"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/new_package_vendor"
-                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/new_package_driver"
-                    style="@style/StatusAddrStyle"
-                    android:text="Driver"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/new_package_vendor" />
-
-                <TextView
-                    android:id="@+id/new_package_driver_select"
-                    style="@style/StatusAddrStyle"
-                    android:text=""
-                    android:hint="Select Driver"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/new_package_driver"
-                    app:layout_constraintStart_toStartOf="@+id/new_package_vendor_select"
-                    app:layout_constraintTop_toBottomOf="@+id/new_package_vendor_select" />
-
-                <TextView
-                    android:id="@+id/new_package_building"
-                    style="@style/StatusAddrStyle"
-                    android:text="Building"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/new_package_driver" />
-
-                <TextView
-                    android:id="@+id/new_package_building_select"
-                    style="@style/StatusAddrStyle"
-                    android:text=""
-                    android:hint="Select Building"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/new_package_building"
-                    app:layout_constraintStart_toStartOf="@+id/new_package_driver_select"
-                    app:layout_constraintTop_toBottomOf="@+id/new_package_driver_select" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/new_package_item_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/dashboard_item_details_bg"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:paddingStart="@dimen/dashboard_item_paddingStartEnd"
-            android:paddingTop="@dimen/dashboard_item_paddingTopBottom"
-            android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
-            android:paddingBottom="@dimen/dashboard_item_paddingStartEnd">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_new_package_item_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/new_package_btn"
+                android:layout_width="332dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="60dp"
+                android:enabled="true"
+                android:text="@string/vendor_btn"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#009688" />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/new_package_btn"
-            android:layout_width="332dp"
-            android:layout_height="51dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:enabled="true"
-            android:gravity="center_horizontal"
-            android:text="@string/vendor_btn"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#009688" />
-
-    </LinearLayout>
     </ScrollView>
 </FrameLayout>

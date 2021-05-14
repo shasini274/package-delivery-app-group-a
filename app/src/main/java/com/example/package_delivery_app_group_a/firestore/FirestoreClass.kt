@@ -20,13 +20,16 @@ import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackDri
 import com.example.package_delivery_app_group_a.ui.manager.newpackage.NewPackBuildingListFragment
 import com.example.package_delivery_app_group_a.ui.manager.account.AccountFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.BuildingFragment
+import com.example.package_delivery_app_group_a.ui.manager.building.BuildingProfileFragment
 import com.example.package_delivery_app_group_a.ui.manager.building.NewBuildingFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.DriverFragment
+import com.example.package_delivery_app_group_a.ui.manager.driver.DriverProfileFragment
 import com.example.package_delivery_app_group_a.ui.manager.driver.NewDriverFragment
 import com.example.package_delivery_app_group_a.ui.manager.history.HistoryFragment
 import com.example.package_delivery_app_group_a.ui.manager.home.HomeFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.NewVendorFragment
 import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorFragment
+import com.example.package_delivery_app_group_a.ui.manager.vendor.VendorProfileFragment
 import com.example.package_delivery_app_group_a.ui.register.RegisterActivity
 import com.example.package_delivery_app_group_a.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -942,5 +945,51 @@ class FirestoreClass {
             }
     }
 
+    fun editOneDriverProfile(
+        fragment: Fragment,
+        userHashMap: HashMap<String, Any>,
+        driverEmail: String
+    ) {
+        mFireStore.collection(Constants.DRIVERS)
+            .document(driverEmail)
+            .update(userHashMap)
+            .addOnSuccessListener {
+                when (fragment) {
+                    is DriverProfileFragment -> {
+                    }
+                }
+            }
+    }
+
+    fun editOneBuildingProfile(
+        fragment: Fragment,
+        userHashMap: HashMap<String, Any>,
+        building_id: String
+    ) {
+        mFireStore.collection(Constants.BUILDINGSITES)
+            .document(building_id)
+            .update(userHashMap)
+            .addOnSuccessListener {
+                when (fragment) {
+                    is BuildingProfileFragment -> {
+                    }
+                }
+            }
+    }
+    fun editOneVendorProfile(
+        fragment: Fragment,
+        userHashMap: HashMap<String, Any>,
+        vendor_id: String
+    ) {
+        mFireStore.collection(Constants.VENDORS)
+            .document(vendor_id)
+            .update(userHashMap)
+            .addOnSuccessListener {
+                when (fragment) {
+                    is VendorProfileFragment -> {
+                    }
+                }
+            }
+    }
 
 }

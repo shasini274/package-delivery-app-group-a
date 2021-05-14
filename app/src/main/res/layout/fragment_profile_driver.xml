@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -44,9 +45,58 @@
             android:id="@+id/driver_profile_mobile"
             style="@style/ProfileStyle" />
 
+        <EditText
+            android:id="@+id/driver_profile_fname_edit"
+            android:visibility="gone"
+            style="@style/ProfileStyle"
+            android:imeOptions="actionDone"/>
+
+        <EditText
+            android:id="@+id/driver_profile_lname_edit"
+            android:visibility="gone"
+            style="@style/ProfileStyle"
+            android:imeOptions="actionDone" />
+
+        <EditText
+            android:id="@+id/driver_profile_mobile_edit"
+            android:visibility="gone"
+            style="@style/ProfileStyle"
+            android:imeOptions="actionDone"
+            android:inputType="number"/>
+
+
         <TextView
             android:id="@+id/driver_profile_id"
             style="@style/ProfileStyle" />
+
+        <Button
+            android:id="@+id/btn_driver_profile_edit"
+            android:layout_width="200dp"
+            android:layout_height="51dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="64dp"
+            android:enabled="true"
+            android:text="Edit"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#009688" />
+
+        <Button
+            android:id="@+id/btn_driver_profile_update"
+            android:layout_width="200dp"
+            android:layout_height="51dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone"
+            android:enabled="true"
+            android:text="Update"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#009688" />
 
     </LinearLayout>
 </FrameLayout>

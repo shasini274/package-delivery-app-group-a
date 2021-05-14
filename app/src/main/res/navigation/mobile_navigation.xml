@@ -251,6 +251,11 @@
         <argument
             android:name="buildingProId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_buildingProfileFragment_to_nav_building"
+            app:destination="@id/nav_building"
+            app:popUpTo="@id/buildingProfileFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/vendorProfileFragment"
@@ -275,6 +280,11 @@
         <argument
             android:name="vendorProId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_vendorProfileFragment_to_nav_vendor"
+            app:destination="@id/nav_vendor"
+            app:popUpTo="@id/vendorProfileFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/driverProfileFragment"
@@ -294,6 +304,11 @@
         <argument
             android:name="driverProImage"
             app:argType="string" />
+        <action
+            android:id="@+id/action_driverProfileFragment_to_nav_driver"
+            app:destination="@id/nav_driver"
+            app:popUpTo="@id/driverProfileFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 
